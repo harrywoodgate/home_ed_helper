@@ -1,8 +1,11 @@
+import { Link } from "react-router";
+
 function App() {
   return (
-    <>
-      <h1 className="text-4xl font-bold text-blue-600">Tailwind is working!</h1>
-    </>
+    <div className="flex flex-col gap-y-3 justify-center items-center h-screen">
+      <h1 className="text-3xl font-bold">Home Ed Helper</h1>
+      <Link to="generator">Click Here</Link>
+    </div>
   );
 }
 
