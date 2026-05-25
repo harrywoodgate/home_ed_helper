@@ -2,11 +2,18 @@ import { useState } from "react";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { MyDocument } from "./Document";
 import { useImageUpload } from "../hooks/useImageUpload";
+import { supabase } from "../supabaseClient";
+import { useNavigate } from "react-router";
 
 export default function Generator() {
   const [input, setInput] = useState("");
-
+  const navigate = useNavigate();
   const { imageBase64, handleFileChange } = useImageUpload();
+
+  async function logout() {
+    await supabase.auth.signOut();
+    navigate("/");
+  }
 
   return (
     <div className="flex flex-col gap-y-3 justify-center items-center h-screen">
@@ -18,15 +25,23 @@ export default function Generator() {
       />
       <label className="cursor-pointer border-black border-2 p-1">
         Select File
-        <input type="file" accept="image/*" onChange={handleFileChange} className="hidden"/>
+        <input
+          type="file"
+          accept="image/*"
+          onChange={handleFileChange}
+          className="hidden"
+        />
       </label>
-      {imageBase64 && <img src={imageBase64} className='w-24 h-24' alt="preview"/>}
+      {imageBase64 && (
+        <img src={imageBase64} className="w-24 h-24" alt="preview" />
+      )}
       <PDFDownloadLink
         document={<MyDocument input={input} image={imageBase64} />}
         fileName="firstdocument.pdf"
       >
         {({ loading }) => (loading ? "Generating..." : "Download PDF")}
       </PDFDownloadLink>
+      <button onClick={logout}>Logout</button>
     </div>
   );
 }
