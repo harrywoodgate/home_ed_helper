@@ -19,19 +19,21 @@ export default function Login() {
   }
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleLogin}>
-        <input
-          type="email"
-          placeholder="Email"
-          onChange={(e) => setEmail(e.target.value)}
-        />
-        <input
-          type="password"
-          placeholder="Password"
-          onChange={(e) => setPassword(e.target.value)}
-        />
+    <div className="flex flex-col justify-center items-center h-screen gap-y-1">
+      <h2  className="text-3xl font-bold">Login</h2>
+      <form onSubmit={handleLogin} className="flex flex-col justify-center">
+        <div className="flex gap-x-2">
+            <input
+              type="email"
+              placeholder="Email"
+              onChange={(e) => setEmail(e.target.value)}
+            />
+            <input
+              type="password"
+              placeholder="Password"
+              onChange={(e) => setPassword(e.target.value)}
+            />
+        </div>
         <button>Login</button>
       </form>
       {error && <p>{error}</p>}
