@@ -15,7 +15,7 @@ export default function Login() {
       password,
     })
     if (error) return setError(error.message)
-    navigate("/generator")
+    navigate("/dashboard")
   }
 
   return (
@@ -37,7 +37,7 @@ export default function Login() {
         <button>Login</button>
       </form>
       {error && <p>{error}</p>}
-      <Link to="/signup">Create an account</Link>
+      <Link to="signup">Create an account</Link>
     </div>
   )
 }

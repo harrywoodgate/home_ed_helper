@@ -3,6 +3,7 @@ import Generator from "./components/Generator";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
+import Dashboard from "./components/Dashboard";
 
 const routes = [
   {
@@ -14,10 +15,18 @@ const routes = [
     element: <Login />
   },
   {
-    path: "Signup",
+    path: "signup",
     element: <Signup />
   },
   {
+    path: "dashboard",
+    element: (
+      <ProtectedRoute>
+        <Dashboard />
+      </ProtectedRoute>
+    ),
+  },
+    {
     path: "generator",
     element: (
       <ProtectedRoute>

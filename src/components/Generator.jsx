@@ -3,10 +3,12 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import { MyDocument } from "./Document";
 import { useImageUpload } from "../hooks/useImageUpload";
 import { supabase } from "../supabaseClient";
-import { useNavigate } from "react-router";
+import { useNavigate} from "react-router";
+import Preview from "./Preview";
 
 export default function Generator() {
   const [input, setInput] = useState("");
+  const [preview, setPreview] = useState(false);
   const navigate = useNavigate();
   const { images, handleFileChange } = useImageUpload();
 
@@ -16,7 +18,7 @@ export default function Generator() {
   }
 
   return (
-    <div className="flex flex-col gap-y-3 justify-center items-center h-screen">
+    <div className="flex flex-col gap-y-3 justify-center items-center min-h-screen">
       <h1>I can be a generator or a record player</h1>
       <input
         type="text"
@@ -32,16 +34,20 @@ export default function Generator() {
           className="hidden"
         />
       </label>
-      {images.length > 0 &&
-        images.map((image, i) => (
-          <img key={i} src={image.base64} className="w-24 h-24" alt={image.name} />
-        ))}
+      <div className="flex gap-x-2">
+        {images.length > 0 &&
+          images.map((image, i) => (
+            <img key={i} src={image.base64} className="w-24 h-24" alt={image.name} />
+          ))}
+      </div>
       <PDFDownloadLink
         document={<MyDocument input={input} images={images} />}
         fileName="firstdocument.pdf"
       >
         {({ loading }) => (loading ? "Generating..." : "Download PDF")}
       </PDFDownloadLink>
+      <button onClick={() => setPreview(prev => !prev)}>Preview</button>
+      <Preview active={preview} document={<MyDocument input={input} images={images} />}></Preview>
       <button onClick={logout}>Logout</button>
     </div>
   );
