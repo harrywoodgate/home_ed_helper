@@ -12,17 +12,36 @@ export default function Generator() {
   const { images, handleFileChange } = useImageUpload();
 
   return (
-    <div className="flex flex-col gap-y-3 p-4">
-      <h1 className="text-2xl">Generator</h1>
-      <GenForm setSubject={setSubject} setsummary={setsummary} images={images} handleFileChange={handleFileChange} />
-      <PDFDownloadLink
-        document={<MyDocument subject={subject} summary={summary} images={images} />}
-        fileName="firstdocument.pdf"
+    <>
+      <div
+        className={preview ? "hidden" : "flex flex-col gap-y-3 p-4 items-start"}
       >
-        {({ loading }) => (loading ? "Generating..." : "Download PDF")}
-      </PDFDownloadLink>
-      <button onClick={() => setPreview(prev => !prev)}>Preview</button>
-      <Preview active={preview} document={<MyDocument subject={subject} summary={summary} images={images} />}></Preview>
-    </div>
+        <h1 className="text-2xl">Generator</h1>
+        <GenForm
+          setSubject={setSubject}
+          // not changing state with setSummary
+          setsummary={setsummary}
+          images={images}
+          handleFileChange={handleFileChange}
+        />
+        <PDFDownloadLink
+          document={
+            <MyDocument subject={subject} summary={summary} images={images} />
+          }
+          fileName="firstdocument.pdf"
+          className="w-32"
+        >
+          {({ loading }) => (loading ? "Generating..." : "Download PDF")}
+        </PDFDownloadLink>
+        <button onClick={() => setPreview((prev) => !prev)}>Preview</button>
+      </div>
+      <Preview
+        active={preview}
+        setActive={setPreview}
+        document={
+          <MyDocument subject={subject} summary={summary} images={images} />
+        }
+      ></Preview>
+    </>
   );
 }
