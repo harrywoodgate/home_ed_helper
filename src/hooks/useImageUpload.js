@@ -1,12 +1,18 @@
 import { useState } from "react";
 
 export function useImageUpload() {
-  const [imageBase64, setImageBase64] = useState(null);
+  const [images, setImages] = useState([]);
 
   const uploadImage = (file) => {
     const reader = new FileReader();
     reader.readAsDataURL(file);
-    reader.onloadend = () => setImageBase64(reader.result);
+    reader.onloadend = () => setImages(prev => [
+      ...prev,
+      {
+        name:file.name,
+        base64: reader.result
+      }
+    ]);
   };
 
   const handleFileChange = (e) => {
@@ -14,5 +20,5 @@ export function useImageUpload() {
     if (file) uploadImage(file);
   };
 
-  return { imageBase64, handleFileChange };
+  return { images, handleFileChange };
 }

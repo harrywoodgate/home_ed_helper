@@ -8,7 +8,7 @@ import { useNavigate } from "react-router";
 export default function Generator() {
   const [input, setInput] = useState("");
   const navigate = useNavigate();
-  const { imageBase64, handleFileChange } = useImageUpload();
+  const { images, handleFileChange } = useImageUpload();
 
   async function logout() {
     await supabase.auth.signOut();
@@ -32,11 +32,12 @@ export default function Generator() {
           className="hidden"
         />
       </label>
-      {imageBase64 && (
-        <img src={imageBase64} className="w-24 h-24" alt="preview" />
-      )}
+      {images.length > 0 &&
+        images.map((image, i) => (
+          <img key={i} src={image.base64} className="w-24 h-24" alt={image.name} />
+        ))}
       <PDFDownloadLink
-        document={<MyDocument input={input} image={imageBase64} />}
+        document={<MyDocument input={input} images={images} />}
         fileName="firstdocument.pdf"
       >
         {({ loading }) => (loading ? "Generating..." : "Download PDF")}
