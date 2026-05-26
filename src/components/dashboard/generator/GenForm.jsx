@@ -1,31 +1,32 @@
-export default function GenForm({ setSubject, setSummary, images, handleFileChange }) {
+export default function GenForm({
+  setSubject,
+  setSummary,
+  images,
+  handleFileChange,
+}) {
   return (
     <>
       <label htmlFor="subject">Subject:</label>
-      <select id="subject" className="w-min p-2" onChange={(e) => setSubject(e.target.value)}>
+      <select
+        id="subject"
+        className="w-min p-2"
+        onChange={(e) => setSubject(e.target.value)}
+      >
         <option value="">Select an option</option>
         <option value="Maths">Maths</option>
         <option value="English">English</option>
         <option value="Science">Science</option>
       </select>
       <label htmlFor="summary">Summary:</label>
-      <input
+      <textarea
         id="summary"
-        type="text"
-        className="border-black border-2 w-2/3 p-1"
+        className="border-black border-2 w-2/3 p-1 resize-none"
         placeholder="summary here"
         onChange={(e) => setSummary(e.target.value)}
+        rows={4}
       />
-      <label className="cursor-pointer border-black border-2 p-2 w-24">
-        Select File
-        <input
-          type="file"
-          accept="image/*"
-          onChange={handleFileChange}
-          className="hidden"
-        />
-      </label>
-      <div className="flex gap-x-2">
+      <label>Pictures:</label>
+      <div className="flex gap-x-4">
         {images.length > 0 &&
           images.map((image, i) => (
             <img
@@ -35,6 +36,15 @@ export default function GenForm({ setSubject, setSummary, images, handleFileChan
               alt={image.name}
             />
           ))}
+        <label className="cursor-pointer border-black border-2 p-2 w-min h-min">
+          +
+          <input
+            type="file"
+            accept="image/*"
+            onChange={handleFileChange}
+            className="hidden"
+          />
+        </label>
       </div>
     </>
   );
