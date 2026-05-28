@@ -9,7 +9,7 @@ export default function Generator() {
   const [subject, setSubject] = useState("");
   const [summary, setSummary] = useState("");
   const [preview, setPreview] = useState(false);
-  const { images, handleFileChange } = useImageUpload();
+  const { images, handleFileChange, deleteImage } = useImageUpload();
 
   return (
     <>
@@ -22,6 +22,7 @@ export default function Generator() {
           setSummary={setSummary}
           images={images}
           handleFileChange={handleFileChange}
+          deleteImage={deleteImage}
         />
         <PDFDownloadLink
           document={

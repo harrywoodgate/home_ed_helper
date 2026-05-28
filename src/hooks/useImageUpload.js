@@ -14,11 +14,15 @@ export function useImageUpload() {
       }
     ]);
   };
-
+// wont let you add 2 of the same picture in a row, also goes a bit wierd after deleting one and then adding the same one again
   const handleFileChange = (e) => {
     const file = e.target.files[0];
     if (file) uploadImage(file);
   };
 
-  return { images, handleFileChange };
+  const deleteImage = (name) => {
+    setImages(images.filter(image => image.name != name))
+  }
+
+  return { images, handleFileChange, deleteImage };
 }

@@ -3,6 +3,7 @@ export default function GenForm({
   setSummary,
   images,
   handleFileChange,
+  deleteImage,
 }) {
   return (
     <>
@@ -30,12 +31,13 @@ export default function GenForm({
       <div className="flex gap-x-4">
         {images.length > 0 &&
           images.map((image, i) => (
-            <img
-              key={i}
-              src={image.base64}
-              className="w-24 h-24"
-              alt={image.name}
-            />
+            <div className="relative" key={i}>
+              <img src={image.base64} className="w-24 h-24" alt={image.name} />
+              <div className="absolute -top-2.5 -right-1.5 bg-black px-1 text-white flex justify-center items-center text-sm rounded-md cursor-pointer"
+              onClick={() => deleteImage(image.name)}>
+                X
+              </div>
+            </div>
           ))}
         <label className="cursor-pointer border-black border-2 p-2 w-min h-min">
           +
