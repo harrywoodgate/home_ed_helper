@@ -6,10 +6,12 @@ const styles = StyleSheet.create({
   img: { width: 200, height: 200 },
 });
 
+const date = new Date().toLocaleDateString("en-GB");
+
 export const MyDocument = ({ subject, summary, images }) => (
   <Document>
     <Page size="A4" style={styles.page}>
-      <Text style={styles.text}>{subject}</Text>
+      <Text style={styles.text}>{subject} - {date}</Text>
       <Text style={styles.text}>{summary}</Text>
       {images.length > 0 &&
         images.map((image) => <Image src={image.base64} style={styles.img} />)}

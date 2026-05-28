@@ -7,7 +7,7 @@ import GenForm from "./GenForm";
 
 export default function Generator() {
   const [subject, setSubject] = useState("");
-  const [summary, setsummary] = useState("");
+  const [summary, setSummary] = useState("");
   const [preview, setPreview] = useState(false);
   const { images, handleFileChange } = useImageUpload();
 
@@ -19,8 +19,7 @@ export default function Generator() {
         <h1 className="text-2xl">Generator</h1>
         <GenForm
           setSubject={setSubject}
-          // not changing state with setSummary
-          setsummary={setsummary}
+          setSummary={setSummary}
           images={images}
           handleFileChange={handleFileChange}
         />
