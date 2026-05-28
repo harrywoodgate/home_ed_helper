@@ -25,6 +25,7 @@ export default function GenForm({
         onChange={(e) => setSummary(e.target.value)}
         rows={4}
       />
+      {/* allow delete pictures */}
       <label>Pictures:</label>
       <div className="flex gap-x-4">
         {images.length > 0 &&
