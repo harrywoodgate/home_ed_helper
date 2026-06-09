@@ -4,12 +4,16 @@ import { MyDocument } from "./Document";
 import { useImageUpload } from "../../../hooks/useImageUpload";
 import Preview from "../Preview";
 import GenForm from "./GenForm";
+import { uploadPdf } from "../../../utils/uploadPdf";
 
 export default function Generator() {
   const [subject, setSubject] = useState("");
   const [summary, setSummary] = useState("");
   const [preview, setPreview] = useState(false);
   const { images, handleFileChange, deleteImage } = useImageUpload();
+  const pdf = (
+    <MyDocument subject={subject} summary={summary} images={images} />
+  );
 
   return (
     <>
@@ -25,23 +29,18 @@ export default function Generator() {
           deleteImage={deleteImage}
         />
         <PDFDownloadLink
-          document={
-            <MyDocument subject={subject} summary={summary} images={images} />
-          }
+          document={pdf}
           fileName="firstdocument.pdf"
           className="w-32"
         >
           {({ loading }) => (loading ? "Generating..." : "Download PDF")}
         </PDFDownloadLink>
         <button onClick={() => setPreview((prev) => !prev)}>Preview</button>
+        <button onClick={() => uploadPdf(pdf, "firstdocument.pdf")}>
+          Add file
+        </button>
       </div>
-      <Preview
-        active={preview}
-        setActive={setPreview}
-        document={
-          <MyDocument subject={subject} summary={summary} images={images} />
-        }
-      ></Preview>
+      <Preview active={preview} setActive={setPreview} document={pdf}></Preview>
     </>
   );
 }

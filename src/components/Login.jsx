@@ -21,7 +21,7 @@ export default function Login() {
   return (
     <div className="flex flex-col justify-center items-center h-screen gap-y-1">
       <h2  className="text-3xl font-bold">Login</h2>
-      <form onSubmit={handleLogin} className="flex flex-col justify-center">
+      <form onSubmit={handleLogin} className="flex flex-col justify-center items-center">
         <div className="flex gap-x-2">
             <input
               type="email"
@@ -34,7 +34,7 @@ export default function Login() {
               onChange={(e) => setPassword(e.target.value)}
             />
         </div>
-        <button>Login</button>
+        <button className="w-min">Login</button>
       </form>
       {error && <p>{error}</p>}
       <Link to="signup">Create an account</Link>

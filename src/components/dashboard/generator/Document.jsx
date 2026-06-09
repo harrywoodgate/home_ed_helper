@@ -32,5 +32,5 @@ export const MyDocument = ({ subject, summary, images }) => (
           ))}
       </View>
     </Page>
-  </Document>
+  </Document> 
 );
