@@ -4,6 +4,7 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./components/Login";
 import Signup from "./components/Signup";
 import Dashboard from "./components/dashboard/Dashboard";
+import History from "./components/dashboard/history/History";
 
 const routes = [
   {
@@ -27,6 +28,7 @@ const routes = [
     ),
     children: [
       {path: "generator", element: <Generator />},
+      {path: "history", element: <History />},
     ]
   },
 ];

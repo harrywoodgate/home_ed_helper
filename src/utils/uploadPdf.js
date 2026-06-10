@@ -20,7 +20,7 @@ export async function uploadPdf(doc, name) {
 
   const { error: dbError } = await supabase.from("report_uploads").insert({
     user_id: user.id,
-    file_path: "filePath",
+    file_path: filePath,
   });
 
   if (dbError) {

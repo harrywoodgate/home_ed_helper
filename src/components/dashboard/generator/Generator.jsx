@@ -2,7 +2,7 @@ import { useState } from "react";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { MyDocument } from "./Document";
 import { useImageUpload } from "../../../hooks/useImageUpload";
-import Preview from "../Preview";
+import Preview from "./Preview";
 import GenForm from "./GenForm";
 import { uploadPdf } from "../../../utils/uploadPdf";
 
