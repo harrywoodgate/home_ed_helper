@@ -9,7 +9,7 @@ export function useFetchHistory() {
     const fetchHistory = async () => {
       const { data, error } = await supabase
         .from("report_uploads")
-        .select("uploaded_at");
+        .select();
       if (error) {
         console.error(error)
         return
