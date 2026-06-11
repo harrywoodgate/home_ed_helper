@@ -15,7 +15,6 @@ export function useFetchHistory() {
         return
       }
       setHistory(data)
-      console.log(data)
     };
 
     fetchHistory();

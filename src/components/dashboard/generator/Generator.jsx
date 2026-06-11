@@ -14,6 +14,8 @@ export default function Generator() {
   const pdf = (
     <MyDocument subject={subject} summary={summary} images={images} />
   );
+  const date = new Date().toLocaleDateString("en-GB");
+  const fileName = `${subject}-${date}`
 
   return (
     <>
@@ -30,13 +32,13 @@ export default function Generator() {
         />
         <PDFDownloadLink
           document={pdf}
-          fileName="firstdocument.pdf"
+          fileName={`${fileName}.pdf`}
           className="w-32"
         >
           {({ loading }) => (loading ? "Generating..." : "Download PDF")}
         </PDFDownloadLink>
         <button onClick={() => setPreview((prev) => !prev)}>Preview</button>
-        <button onClick={() => uploadPdf(pdf, "firstdocument.pdf")}>
+        <button onClick={() => uploadPdf(pdf, fileName)}>
           Add file
         </button>
       </div>
