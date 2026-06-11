@@ -1,8 +1,8 @@
 import { supabase } from "../supabaseClient";
 
-export async function downloadPdf(filepath) {
-    console.log(filepath)
-  const { data, error } = await supabase.storage
+export async function downloadPdf(filepath, fileName) {
+
+    const { data, error } = await supabase.storage
     .from("reports")
     .download(filepath);
 
@@ -14,7 +14,7 @@ export async function downloadPdf(filepath) {
 
     const a = document.createElement('a');
     a.href = url;
-    a.download = "download.pdf";
+    a.download = fileName;
     a.click();
 
     URL.revokeObjectURL(url);

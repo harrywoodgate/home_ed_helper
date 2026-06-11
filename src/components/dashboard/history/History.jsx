@@ -11,7 +11,7 @@ export default function History() {
         history.map((report) => (
           <div className="flex gap-x-2">
             <div>{report.file_name.replace(/-/, " - ")}</div>
-            <button onClick={() => downloadPdf(report.file_path)}>
+            <button onClick={() => downloadPdf(report.file_path, report.file_name)}>
               Download
             </button>
           </div>
