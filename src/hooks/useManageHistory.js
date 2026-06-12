@@ -1,11 +1,11 @@
 import { useState } from "react";
 import { useEffect } from "react";
 import { supabase } from "../supabaseClient";
+import { deletePdf } from "../utils/deletePdf";
 
-export function useFetchHistory() {
+export function useManageHistory() {
   const [history, setHistory] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [noHistory, setNoHistory] = useState(false)
 
   useEffect(() => {
     const fetchHistory = async () => {
@@ -16,12 +16,16 @@ export function useFetchHistory() {
         console.error(error)
         return
       }
-      data.length === 0 ? setNoHistory(true) : setHistory(data);
+      setHistory(data);
       setLoading(false);
     };
-
     fetchHistory();
   }, []);
 
-  return {history, loading, noHistory}
+  const deleteHistory = (filePath) => {
+    deletePdf(filePath);
+    setHistory(prev => prev.filter(report => report.file_path !== filePath));
+  }
+
+  return {history, loading, deleteHistory}
 }
