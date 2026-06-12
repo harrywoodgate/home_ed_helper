@@ -2,7 +2,7 @@ export default function GenForm({
   setSubject,
   setSummary,
   images,
-  handleFileChange,
+  addImage,
   deleteImage,
 }) {
   return (
@@ -43,7 +43,7 @@ export default function GenForm({
           <input
             type="file"
             accept="image/*"
-            onChange={handleFileChange}
+            onChange={addImage}
             className="hidden"
           />
         </label>

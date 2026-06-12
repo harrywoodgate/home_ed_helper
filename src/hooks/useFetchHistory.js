@@ -4,6 +4,8 @@ import { supabase } from "../supabaseClient";
 
 export function useFetchHistory() {
   const [history, setHistory] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [noHistory, setNoHistory] = useState(false)
 
   useEffect(() => {
     const fetchHistory = async () => {
@@ -14,11 +16,12 @@ export function useFetchHistory() {
         console.error(error)
         return
       }
-      setHistory(data)
+      data.length === 0 ? setNoHistory(true) : setHistory(data);
+      setLoading(false);
     };
 
     fetchHistory();
   }, []);
 
-  return {history}
+  return {history, loading, noHistory}
 }

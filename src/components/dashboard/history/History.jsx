@@ -4,12 +4,15 @@ import { previewPdf } from "../../../utils/previewPdf";
 import { supabase } from "../../../supabaseClient";
 
 export default function History() {
-  const { history } = useFetchHistory();
+  const { history, loading, noHistory } = useFetchHistory();
 
   return (
     <div className="p-4">
       <h1 className="text-2xl">History</h1>
-      {history.length > 0 &&
+      {loading ? <div>Loading...</div> : ""}
+      {noHistory ? (
+        <div>Oops looks like you havent uploaded anything yet!</div>
+      ) : (
         history.map((report) => (
           <div className="flex gap-x-2" key={report.id}>
             <div
@@ -26,7 +29,8 @@ export default function History() {
               Download
             </button>
           </div>
-        ))}
+        ))
+      )}
     </div>
   );
 }
