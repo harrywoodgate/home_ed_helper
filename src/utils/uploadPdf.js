@@ -1,13 +1,8 @@
 import { supabase } from "../supabaseClient";
 import { pdf } from "@react-pdf/renderer";
 
-export async function uploadPdf(doc, fileName) {
+export async function uploadPdf(doc, fileName, id, filePath) {
   const blob = await pdf(doc).toBlob();
-
-  const user = (await supabase.auth.getUser()).data.user;
-  if (!user) return;
-
-  const filePath = `${user.id}/${Date.now()}-${fileName}.pdf`;
 
   const { error: uploadError } = await supabase.storage
     .from("reports")
@@ -19,7 +14,7 @@ export async function uploadPdf(doc, fileName) {
   }
 
   const { error: dbError } = await supabase.from("report_uploads").insert({
-    user_id: user.id,
+    user_id: id,
     file_path: filePath,
     file_name: fileName
   });

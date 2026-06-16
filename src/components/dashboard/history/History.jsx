@@ -1,10 +1,11 @@
-import { useManageHistory } from "../../../hooks/useManageHistory";
 import { downloadPdf } from "../../../utils/downloadPdf";
 import { previewPdf } from "../../../utils/previewPdf";
 import { supabase } from "../../../supabaseClient";
+import { useOutletContext } from "react-router";
 
 export default function History() {
-  const { history, loading, deleteHistory } = useManageHistory();
+  const {history, loading, deleteHistory} = useOutletContext();
+  console.log(history)
 
   return (
     <div className="p-4">

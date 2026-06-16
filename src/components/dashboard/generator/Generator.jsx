@@ -3,9 +3,9 @@ import { PDFDownloadLink } from "@react-pdf/renderer";
 import { MyDocument } from "./Document";
 import { useImageUpload } from "../../../hooks/useImageUpload";
 import GenForm from "./GenForm";
-import { uploadPdf } from "../../../utils/uploadPdf";
 import { previewPdf } from "../../../utils/previewPdf";
 import { pdf } from "@react-pdf/renderer";
+import { useOutletContext } from "react-router";
 
 export default function Generator() {
   const [subject, setSubject] = useState("");
@@ -16,6 +16,7 @@ export default function Generator() {
   );
   const date = new Date().toLocaleDateString("en-GB");
   const fileName = `${subject}-${date}`;
+  const {addHistory} = useOutletContext();
 
   return (
     <>
@@ -40,7 +41,7 @@ export default function Generator() {
         <button onClick={async () => {
           const blob = await pdf(document).toBlob();
           previewPdf(blob)}}>Preview</button>
-        <button onClick={() => uploadPdf(document, fileName)}>Save pdf</button>
+        <button onClick={() => addHistory(document, fileName)}>Save pdf</button>
       </div>
     </>
   );
