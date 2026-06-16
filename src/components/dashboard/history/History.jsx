@@ -1,11 +1,10 @@
 import { downloadPdf } from "../../../utils/downloadPdf";
 import { previewPdf } from "../../../utils/previewPdf";
-import { supabase } from "../../../supabaseClient";
 import { useOutletContext } from "react-router";
+import { fetchBlob } from "../../../utils/fetchBlob";
 
 export default function History() {
   const {history, loading, deleteHistory} = useOutletContext();
-  console.log(history)
 
   return (
     <div className="p-4">
@@ -36,15 +35,4 @@ export default function History() {
       )}
     </div>
   );
-}
-
-async function fetchBlob(filepath) {
-  const { data, error } = await supabase.storage
-    .from("reports")
-    .download(filepath);
-
-  if (error) {
-    console.error;
-  }
-  return data;
 }
