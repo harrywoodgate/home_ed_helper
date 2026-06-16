@@ -1,6 +1,6 @@
 import { useState } from "react";
 
-export function useImageUpload() {
+export function useManageImages() {
   const [images, setImages] = useState([]);
 
   const uploadImage = (file) => {
@@ -24,5 +24,9 @@ export function useImageUpload() {
     setImages(images.filter(image => image.name != name))
   }
 
-  return { images, addImage, deleteImage };
+  const resetImages = () => {
+    setImages([])
+  }
+
+  return { images, addImage, deleteImage, resetImages };
 }

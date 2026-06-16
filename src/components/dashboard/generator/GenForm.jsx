@@ -1,5 +1,7 @@
 export default function GenForm({
   setSubject,
+  subject,
+  summary,
   setSummary,
   images,
   addImage,
@@ -12,6 +14,7 @@ export default function GenForm({
         id="subject"
         className="w-min p-2"
         onChange={(e) => setSubject(e.target.value)}
+        value={subject}
       >
         <option value="">Select an option</option>
         <option value="Maths">Maths</option>
@@ -25,6 +28,7 @@ export default function GenForm({
         placeholder="summary here"
         onChange={(e) => setSummary(e.target.value)}
         rows={4}
+        value={summary}
       />
       <label>Pictures:</label>
       <div className="flex gap-x-4">

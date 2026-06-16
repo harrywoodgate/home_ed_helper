@@ -1,16 +1,16 @@
 import { useState } from "react";
 import { PDFDownloadLink } from "@react-pdf/renderer";
 import { MyDocument } from "./Document";
-import { useImageUpload } from "../../../hooks/useImageUpload";
+import { useManageImages } from "../../../hooks/useManageImages";
 import GenForm from "./GenForm";
 import { previewPdf } from "../../../utils/previewPdf";
 import { pdf } from "@react-pdf/renderer";
 import { useOutletContext } from "react-router";
 
 export default function Generator() {
-  const [subject, setSubject] = useState("");
+  const [subject, setSubject] = useState("Select an option");
   const [summary, setSummary] = useState("");
-  const { images, addImage, deleteImage } = useImageUpload();
+  const { images, addImage, deleteImage, resetImages } = useManageImages();
   const document = (
     <MyDocument subject={subject} summary={summary} images={images} />
   );
@@ -26,6 +26,8 @@ export default function Generator() {
         <h1 className="text-2xl">Generator</h1>
         <GenForm
           setSubject={setSubject}
+          subject={subject}
+          summary={summary}
           setSummary={setSummary}
           images={images}
           addImage={addImage}
@@ -41,7 +43,11 @@ export default function Generator() {
         <button onClick={async () => {
           const blob = await pdf(document).toBlob();
           previewPdf(blob)}}>Preview</button>
-        <button onClick={() => addHistory(document, fileName)}>Save pdf</button>
+        <button onClick={() => {addHistory(document, fileName);
+          setSummary('');
+          setSubject('');
+          resetImages();
+        }}>Save pdf</button>
       </div>
     </>
   );
