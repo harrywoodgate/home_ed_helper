@@ -8,7 +8,7 @@ import { pdf } from "@react-pdf/renderer";
 import { useOutletContext } from "react-router";
 
 export default function Generator() {
-  const [subject, setSubject] = useState("Select an option");
+  const [subject, setSubject] = useState("");
   const [summary, setSummary] = useState("");
   const { images, addImage, deleteImage, resetImages } = useManageImages();
   const document = (
