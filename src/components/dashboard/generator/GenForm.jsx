@@ -9,23 +9,44 @@ export default function GenForm() {
     setSubject,
     summary,
     setSummary,
+    date,
+    setDate,
   } = useOutletContext();
 
   return (
     <>
-      <label htmlFor="subject" className="font-medium">Subject:</label>
-      <select
-        id="subject"
-        className="w-min p-2 bg-white"
-        onChange={(e) => setSubject(e.target.value)}
-        value={subject}
-      >
-        <option value="">Select an option</option>
-        <option value="Maths">Maths</option>
-        <option value="English">English</option>
-        <option value="Science">Science</option>
-      </select>
-      <label htmlFor="summary" className="font-medium">Summary:</label>
+      <div className="flex gap-x-8">
+        <div className="flex flex-col gap-y-3">
+          <label htmlFor="subject" className="font-medium">
+            Subject:
+          </label>
+          <select
+            id="subject"
+            className="w-min p-2 bg-white"
+            onChange={(e) => setSubject(e.target.value)}
+            value={subject}
+          >
+            <option value="">Select an option</option>
+            <option value="Maths">Maths</option>
+            <option value="English">English</option>
+            <option value="Science">Science</option>
+          </select>
+        </div>
+        <div className="flex flex-col gap-y-3">
+          <label htmlFor="date" className="font-medium">Date:</label>
+          <input
+            type="date"
+            name="date"
+            id="date"
+            value={date}
+            onChange={(e) => setDate(e.target.value)}
+            className="h-[38px]"
+          />
+        </div>
+      </div>
+      <label htmlFor="summary" className="font-medium">
+        Summary:
+      </label>
       <textarea
         id="summary"
         className="border-black border-2 w-2/3 p-1 resize-none"

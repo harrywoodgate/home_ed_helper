@@ -8,6 +8,7 @@ import { useState } from "react";
 export default function Dashboard() {
   const [subject, setSubject] = useState("");
   const [summary, setSummary] = useState("");
+  const [date, setDate] = useState(new Date().toISOString().split("T")[0])
   const { history, loading, deleteHistory, addHistory } = useManageHistory();
   const { images, addImage, deleteImage, resetImages } = useManageImages();
 
@@ -28,7 +29,9 @@ export default function Dashboard() {
           subject,
           setSubject,
           summary,
-          setSummary
+          setSummary,
+          date,
+          setDate
         }}
       />
     </div>

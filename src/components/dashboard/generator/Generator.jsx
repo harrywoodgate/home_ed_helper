@@ -14,19 +14,21 @@ export default function Generator() {
     summary,
     setSubject,
     setSummary,
+    date,
   } = useOutletContext();
 
-  const document = (
-    <MyDocument subject={subject} summary={summary} images={images} />
+  const [year, month, day] = date.split("-");
+  const formattedDate = `${day}/${month}/${year}`
+  const fileName = `${subject}-${formattedDate}`;
+    const document = (
+    <MyDocument subject={subject} summary={summary} images={images} date={formattedDate}/>
   );
-  const date = new Date().toLocaleDateString("en-GB");
-  const fileName = `${subject}-${date}`;
 
   return (
     <>
       <div className="flex flex-col gap-y-3 p-4 items-start">
         <h1 className="text-2xl font-semibold">Generator</h1>
-        <GenForm />
+        <GenForm/>
         <div className="flex gap-x-2">
           <PDFDownloadLink
             document={document}

@@ -16,9 +16,8 @@ const styles = StyleSheet.create({
   imgContainer: { display: 'flex', flexDirection: 'row', columnGap: 10 }
 });
 
-const date = new Date().toLocaleDateString("en-GB");
 
-export const MyDocument = ({ subject, summary, images }) => (
+export const MyDocument = ({ subject, summary, images, date }) => (
   <Document>
     <Page size="A4" style={styles.page}>
       <Text style={styles.heading}>
