@@ -1,12 +1,16 @@
-export default function GenForm({
-  setSubject,
-  subject,
-  summary,
-  setSummary,
-  images,
-  addImage,
-  deleteImage,
-}) {
+import { useOutletContext } from "react-router";
+
+export default function GenForm() {
+  const {
+    images,
+    addImage,
+    deleteImage,
+    subject,
+    setSubject,
+    summary,
+    setSummary,
+  } = useOutletContext();
+
   return (
     <>
       <label htmlFor="subject">Subject:</label>
@@ -36,8 +40,10 @@ export default function GenForm({
           images.map((image, i) => (
             <div className="relative" key={i}>
               <img src={image.base64} className="w-24 h-24" alt={image.name} />
-              <div className="absolute -top-2.5 -right-1.5 bg-black px-1 text-white flex justify-center items-center text-sm rounded-md cursor-pointer"
-              onClick={() => deleteImage(image.name)}>
+              <div
+                className="absolute -top-2.5 -right-1.5 bg-black px-1 text-white flex justify-center items-center text-sm rounded-md cursor-pointer"
+                onClick={() => deleteImage(image.name)}
+              >
                 X
               </div>
             </div>
