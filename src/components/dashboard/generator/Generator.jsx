@@ -25,7 +25,7 @@ export default function Generator() {
   return (
     <>
       <div className="flex flex-col gap-y-3 p-4 items-start">
-        <h1 className="text-2xl">Generator</h1>
+        <h1 className="text-2xl font-semibold">Generator</h1>
         <GenForm />
         <PDFDownloadLink
           document={document}
