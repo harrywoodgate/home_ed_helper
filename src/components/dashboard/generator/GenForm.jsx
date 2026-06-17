@@ -13,10 +13,10 @@ export default function GenForm() {
 
   return (
     <>
-      <label htmlFor="subject">Subject:</label>
+      <label htmlFor="subject" className="font-medium">Subject:</label>
       <select
         id="subject"
-        className="w-min p-2"
+        className="w-min p-2 bg-white"
         onChange={(e) => setSubject(e.target.value)}
         value={subject}
       >
@@ -25,7 +25,7 @@ export default function GenForm() {
         <option value="English">English</option>
         <option value="Science">Science</option>
       </select>
-      <label htmlFor="summary">Summary:</label>
+      <label htmlFor="summary" className="font-medium">Summary:</label>
       <textarea
         id="summary"
         className="border-black border-2 w-2/3 p-1 resize-none"
@@ -34,8 +34,8 @@ export default function GenForm() {
         rows={4}
         value={summary}
       />
-      <label>Pictures:</label>
-      <div className="flex gap-x-4">
+      <label className="font-medium">Pictures:</label>
+      <div className="flex gap-x-4 min-h-36 min-w-36 bg-white p-4 items-center rounded-md">
         {images.length > 0 &&
           images.map((image, i) => (
             <div className="relative" key={i}>
@@ -48,7 +48,7 @@ export default function GenForm() {
               </div>
             </div>
           ))}
-        <label className="cursor-pointer border-black border-2 p-2 w-min h-min">
+        <label className="cursor-pointer border-black border-2 p-2 w-10 h-10 rounded-full flex items-center justify-center text-lg">
           +
           <input
             type="file"

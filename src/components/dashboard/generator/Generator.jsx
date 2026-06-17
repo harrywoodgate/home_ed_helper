@@ -27,36 +27,40 @@ export default function Generator() {
       <div className="flex flex-col gap-y-3 p-4 items-start">
         <h1 className="text-2xl font-semibold">Generator</h1>
         <GenForm />
-        <PDFDownloadLink
-          document={document}
-          fileName={`${fileName}.pdf`}
-          className="w-32"
-          onClick={() => {
-            setSummary("");
-            setSubject("");
-            resetImages();
-          }}
-        >
-          {({ loading }) => (loading ? "Generating..." : "Download PDF")}
-        </PDFDownloadLink>
-        <button
-          onClick={async () => {
-            const blob = await pdf(document).toBlob();
-            previewPdf(blob);
-          }}
-        >
-          Preview
-        </button>
-        <button
-          onClick={() => {
-            addHistory(document, fileName);
-            setSummary("");
-            setSubject("");
-            resetImages();
-          }}
-        >
-          Save pdf
-        </button>
+        <div className="flex gap-x-2">
+          <PDFDownloadLink
+            document={document}
+            fileName={`${fileName}.pdf`}
+            className="bg-white p-2 rounded-md font-medium"
+            onClick={() => {
+              setSummary("");
+              setSubject("");
+              resetImages();
+            }}
+          >
+            {({ loading }) => (loading ? "Generating..." : "Download")}
+          </PDFDownloadLink>
+          <button
+            onClick={async () => {
+              const blob = await pdf(document).toBlob();
+              previewPdf(blob);
+            }}
+            className="bg-white p-2 rounded-md font-medium"
+          >
+            Preview
+          </button>
+          <button
+            onClick={() => {
+              addHistory(document, fileName);
+              setSummary("");
+              setSubject("");
+              resetImages();
+            }}
+            className="bg-white p-2 rounded-md font-medium"
+          >
+            Save
+          </button>
+        </div>
       </div>
     </>
   );
