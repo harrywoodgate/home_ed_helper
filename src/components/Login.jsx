@@ -44,7 +44,7 @@ export default function Login() {
         </form>
         {error && <p className="text-sm">{error}</p>}
         <div className="w-48 h-0.5 bg-gray-200 mt-2 mb-1"></div>
-        <p className="text-sm">Don't have an account? <Link to="signup" className="text-indigo-900 underline">Click here</Link>
+        <p className="text-sm">Don't have an account? <Link to="/signup" className="text-indigo-900 underline">Click here</Link>
         </p>
       </div>
     </div>
