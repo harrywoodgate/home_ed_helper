@@ -6,7 +6,7 @@ export default function Nav({ selected, setSelected }) {
   const selectedStyling =
     "flex items-center gap-x-2 font-medium bg-background w-full rounded-md p-3 text-xs text-secondary";
   const unselectedStyling =
-    "flex items-center gap-x-2 font-medium w-full rounded-md p-3 text-xs text-secondary_text";
+    "flex items-center gap-x-2 font-medium w-full rounded-md p-3 text-xs text-secondary_text hover:bg-background";
 
   const navigate = useNavigate();
 
@@ -16,7 +16,7 @@ export default function Nav({ selected, setSelected }) {
   }
 
   return (
-    <nav className="py-6 px-4 flex flex-col row-start-1 row-end-3 bg-white items-start justify-between">
+    <nav className="py-6 px-4 flex flex-col row-start-1 row-end-3 bg-white items-start justify-between shadow-sm border-r shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)]">
       <div className="flex flex-col items-center w-full">
         <div className="flex items-center -ml-3">
           <img
@@ -69,7 +69,7 @@ export default function Nav({ selected, setSelected }) {
       </div>
       <button
         onClick={logout}
-        className="flex items-center gap-x-2 font-medium rounded-md p-3 text-xs w-full text-left"
+        className="flex items-center gap-x-2 font-medium rounded-md p-3 text-xs w-full text-left hover:bg-background"
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 fill-secondary_text">
           <title>logout</title>

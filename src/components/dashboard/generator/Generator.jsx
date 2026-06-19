@@ -2,10 +2,11 @@ import GenForm from "./GenForm";
 import GenButtons from "./GenButtons";
 
 export default function Generator() {
-
   return (
-    <div className="flex justify-center">
-      <div className="flex flex-col px-6 py-8 gap-y-4 items-start w-[1000px] bg-white rounded-lg">
+    <div className="flex justify-center pb-8">
+      <div
+        className="flex flex-col px-6 py-8 gap-y-4 items-start w-[1000px] bg-white rounded-2xl border shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)]"
+      >
         <div className="flex items-center gap-x-4">
           <div className="bg-background h-14 w-14 flex items-center justify-center rounded-full">
             <svg

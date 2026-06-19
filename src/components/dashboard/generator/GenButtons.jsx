@@ -5,7 +5,6 @@ import { useOutletContext } from "react-router";
 import { MyDocument } from "./Document";
 
 export default function GenButtons() {
-
   const {
     addHistory,
     resetImages,
@@ -37,7 +36,7 @@ export default function GenButtons() {
             const blob = await pdf(document).toBlob();
             previewPdf(blob);
           }}
-          className="bg-white px-4 py-3 rounded-md font-medium text-xs border-border border-2 flex items-center gap-x-2"
+          className="bg-white px-4 py-3 rounded-md font-medium text-xs border shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)] flex items-center gap-x-2 hover:bg-slate-50"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -56,7 +55,7 @@ export default function GenButtons() {
             setSubject("");
             resetImages();
           }}
-          className="bg-secondary px-4 w-[100px] rounded-md font-medium text-white text-xs flex items-center justify-center gap-x-2"
+          className="bg-secondary px-4 w-[100px] rounded-md font-medium text-white text-xs flex items-center justify-center gap-x-2 hover:bg-indigo-700"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -71,7 +70,7 @@ export default function GenButtons() {
         <PDFDownloadLink
           document={document}
           fileName={`${fileName}.pdf`}
-          className="bg-white px-4 py-3 rounded-md font-medium text-xs border-border border-2 flex items-center"
+          className="bg-white px-4 py-3 rounded-md font-medium text-xs border shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)] flex items-center hover:bg-slate-50"
           onClick={() => {
             setSummary("");
             setSubject("");
