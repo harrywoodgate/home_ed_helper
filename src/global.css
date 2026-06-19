@@ -6,7 +6,7 @@
 :root {
   --background: #f8fafc;
   --border: #E2E8F0;
-  --primary-button: #4F46E5;
+  --secondary-blue: #4F46E5;
   background-color: var(--background);
   color: #0F172A;
 }

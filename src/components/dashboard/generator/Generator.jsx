@@ -56,7 +56,7 @@ export default function Generator() {
               setSubject("");
               resetImages();
             }}
-            className="bg-button px-8 rounded-md font-medium text-white text-xs"
+            className="bg-secondary px-8 rounded-md font-medium text-white text-xs"
           >
             Save
           </button>

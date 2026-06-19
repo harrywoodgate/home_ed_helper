@@ -6,7 +6,7 @@ export default {
       colors: {
         background: 'var(--background)',
         border: 'var(--border)',
-        button: 'var(--primary-button)'
+        secondary: 'var(--secondary-blue)'
       }
     },
   },
