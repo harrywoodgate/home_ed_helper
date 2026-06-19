@@ -30,8 +30,8 @@ export default function Generator() {
   );
 
   return (
-    <div className="flex justify-center p-4">
-      <div className="flex flex-col px-6 py-8 gap-y-3 items-start w-[900px] bg-white rounded-lg">
+    <div className="flex justify-center">
+      <div className="flex flex-col px-6 py-8 gap-y-3 items-start w-[1000px] bg-white rounded-lg">
         <div>
           <h1 className="text-2xl font-semibold">Generator</h1>
           <h2 className="font-light">

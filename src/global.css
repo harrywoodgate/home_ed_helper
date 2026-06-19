@@ -7,6 +7,7 @@
   --background: #f8fafc;
   --border: #E2E8F0;
   --secondary-blue: #4F46E5;
+  --secondary-text: #64748B;
   background-color: var(--background);
   color: #0F172A;
 }

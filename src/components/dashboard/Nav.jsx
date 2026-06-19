@@ -6,7 +6,7 @@ export default function Nav({ selected, setSelected }) {
   const selectedStyling =
     "flex items-center gap-x-2 font-medium bg-background w-full rounded-md p-3 text-xs text-secondary";
   const unselectedStyling =
-    "flex items-center gap-x-2 font-medium w-full rounded-md p-3 text-xs";
+    "flex items-center gap-x-2 font-medium w-full rounded-md p-3 text-xs text-secondary_text";
 
   const navigate = useNavigate();
 
@@ -39,7 +39,7 @@ export default function Nav({ selected, setSelected }) {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             className={
-              selected === "Generator" ? "w-5 h-5 fill-secondary" : "w-5 h-5"
+              selected === "Generator" ? "w-5 h-5 fill-secondary" : "w-5 h-5 fill-secondary_text"
             }
           >
             <title>generator</title>
@@ -58,7 +58,7 @@ export default function Nav({ selected, setSelected }) {
             xmlns="http://www.w3.org/2000/svg"
             viewBox="0 0 24 24"
             className={
-              selected === "History" ? "w-5 h-5 fill-secondary" : "w-5 h-5"
+              selected === "History" ? "w-5 h-5 fill-secondary" : "w-5 h-5 fill-secondary_text"
             }
           >
             <title>history</title>
@@ -71,11 +71,11 @@ export default function Nav({ selected, setSelected }) {
         onClick={logout}
         className="flex items-center gap-x-2 font-medium rounded-md p-3 text-xs w-full text-left"
       >
-        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 fill-secondary_text">
           <title>logout</title>
           <path d="M17 7L15.59 8.41L18.17 11H8V13H18.17L15.59 15.58L17 17L22 12M4 5H12V3H4C2.9 3 2 3.9 2 5V19C2 20.1 2.9 21 4 21H12V19H4V5Z" />
         </svg>
-        <span>Logout</span>
+        <span className="text-secondary_text">Logout</span>
       </button>
     </nav>
   );
