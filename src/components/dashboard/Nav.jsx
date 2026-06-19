@@ -4,8 +4,9 @@ import { supabase } from "../../supabaseClient";
 
 export default function Nav({ selected, setSelected }) {
   const selectedStyling =
-    "font-medium bg-background w-full rounded-md p-3 text-xs text-secondary";
-  const unselectedStyling = "font-medium w-full rounded-md p-3 text-xs";
+    "flex items-center gap-x-2 font-medium bg-background w-full rounded-md p-3 text-xs text-secondary";
+  const unselectedStyling =
+    "flex items-center gap-x-2 font-medium w-full rounded-md p-3 text-xs";
 
   const navigate = useNavigate();
 
@@ -34,7 +35,17 @@ export default function Nav({ selected, setSelected }) {
           }
           onClick={() => setSelected("Generator")}
         >
-          Generator
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            className={
+              selected === "Generator" ? "w-5 h-5 fill-secondary" : "w-5 h-5"
+            }
+          >
+            <title>generator</title>
+            <path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z" />
+          </svg>
+          <span>Generator</span>
         </Link>
         <Link
           to="history"
@@ -43,10 +54,29 @@ export default function Nav({ selected, setSelected }) {
           }
           onClick={() => setSelected("History")}
         >
-          History
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            className={
+              selected === "History" ? "w-5 h-5 fill-secondary" : "w-5 h-5"
+            }
+          >
+            <title>history</title>
+            <path d="M13.5,8H12V13L16.28,15.54L17,14.33L13.5,12.25V8M13,3A9,9 0 0,0 4,12H1L4.96,16.03L9,12H6A7,7 0 0,1 13,5A7,7 0 0,1 20,12A7,7 0 0,1 13,19C11.07,19 9.32,18.21 8.06,16.94L6.64,18.36C8.27,20 10.5,21 13,21A9,9 0 0,0 22,12A9,9 0 0,0 13,3" />
+          </svg>
+          <span>History</span>
         </Link>
       </div>
-      <button onClick={logout} className="font-medium rounded-md p-3 text-xs w-full text-left">Logout</button>
+      <button
+        onClick={logout}
+        className="flex items-center gap-x-2 font-medium rounded-md p-3 text-xs w-full text-left"
+      >
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5">
+          <title>logout</title>
+          <path d="M17 7L15.59 8.41L18.17 11H8V13H18.17L15.59 15.58L17 17L22 12M4 5H12V3H4C2.9 3 2 3.9 2 5V19C2 20.1 2.9 21 4 21H12V19H4V5Z" />
+        </svg>
+        <span>Logout</span>
+      </button>
     </nav>
   );
 }
