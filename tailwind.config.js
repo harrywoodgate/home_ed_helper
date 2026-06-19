@@ -4,7 +4,9 @@ export default {
   theme: {
     extend: {
       colors: {
-        background: 'var(--background)'
+        background: 'var(--background)',
+        border: 'var(--border)',
+        button: 'var(--primary-button)'
       }
     },
   },

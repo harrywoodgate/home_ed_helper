@@ -18,36 +18,34 @@ export default function Generator() {
   } = useOutletContext();
 
   const [year, month, day] = date.split("-");
-  const formattedDate = `${day}/${month}/${year}`
+  const formattedDate = `${day}/${month}/${year}`;
   const fileName = `${subject}-${formattedDate}`;
-    const document = (
-    <MyDocument subject={subject} summary={summary} images={images} date={formattedDate}/>
+  const document = (
+    <MyDocument
+      subject={subject}
+      summary={summary}
+      images={images}
+      date={formattedDate}
+    />
   );
 
   return (
-    <>
-      <div className="flex flex-col gap-y-3 p-4 items-start">
-        <h1 className="text-2xl font-semibold">Generator</h1>
-        <GenForm/>
-        <div className="flex gap-x-2">
-          <PDFDownloadLink
-            document={document}
-            fileName={`${fileName}.pdf`}
-            className="bg-white p-2 rounded-md font-medium"
-            onClick={() => {
-              setSummary("");
-              setSubject("");
-              resetImages();
-            }}
-          >
-            {({ loading }) => (loading ? "Generating..." : "Download")}
-          </PDFDownloadLink>
+    <div className="flex justify-center p-4">
+      <div className="flex flex-col px-6 py-8 gap-y-3 items-start w-[900px] bg-white rounded-lg">
+        <div>
+          <h1 className="text-2xl font-semibold">Generator</h1>
+          <h2 className="font-light">
+            Fill in the details below to generate your report
+          </h2>
+        </div>
+        <GenForm />
+        <div className="flex w-full justify-end gap-x-2">
           <button
             onClick={async () => {
               const blob = await pdf(document).toBlob();
               previewPdf(blob);
             }}
-            className="bg-white p-2 rounded-md font-medium"
+            className="bg-white px-6 py-2 rounded-md font-medium text-xs border-border border-2"
           >
             Preview
           </button>
@@ -58,12 +56,24 @@ export default function Generator() {
               setSubject("");
               resetImages();
             }}
-            className="bg-white p-2 rounded-md font-medium"
+            className="bg-button px-8 rounded-md font-medium text-white text-xs"
           >
             Save
           </button>
+          <PDFDownloadLink
+            document={document}
+            fileName={`${fileName}.pdf`}
+            className="bg-white px-6 py-2 rounded-md font-medium text-xs border-border border-2 flex items-center"
+            onClick={() => {
+              setSummary("");
+              setSubject("");
+              resetImages();
+            }}
+          >
+            {({ loading }) => (loading ? "Generating..." : "Download")}
+          </PDFDownloadLink>
         </div>
       </div>
-    </>
+    </div>
   );
 }
