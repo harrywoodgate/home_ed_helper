@@ -15,7 +15,7 @@ export default function Login() {
       password,
     });
     if (error) return setError(error.message);
-    navigate("/dashboard");
+    navigate("/dashboard/generator");
   }
 
   return (
@@ -40,7 +40,7 @@ export default function Login() {
               className="bg-white border-2 border-gray-400 p-2 rounded-md text-gray-700 focus:outline-none"
             />
           </div>
-          <button className="bg-background w-full rounded-md p-2">Login</button>
+          <button className="bg-secondary w-full rounded-md p-2 text-white">Login</button>
         </form>
         {error && <p className="text-sm">{error}</p>}
         <div className="w-48 h-0.5 bg-gray-200 mt-2 mb-1"></div>

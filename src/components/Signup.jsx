@@ -51,7 +51,7 @@ export default function Signup() {
               className="bg-white border-2 border-gray-400 p-2 rounded-md text-gray-700 focus:outline-none"
             />
           </div>
-          <button className="bg-background w-full rounded-md p-2">
+          <button className="bg-secondary text-white w-full rounded-md p-2">
             Create Account
           </button>
         </form>
