@@ -9,9 +9,9 @@ export default function Dashboard() {
   const [subject, setSubject] = useState("");
   const [summary, setSummary] = useState("");
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
-  const [selected, setSelected] = useState('');
+  const [selected, setSelected] = useState('Generator');
   const { history, loading, deleteHistory, addHistory } = useManageHistory();
-  const { images, addImage, deleteImage, resetImages } = useManageImages();
+  const { images, addImage, deleteImage, resetImages, addImages } = useManageImages();
 
   return (
     <div className="grid grid-cols-[240px_3fr] min-h-screen grid-rows-[auto_1fr]">
@@ -26,6 +26,7 @@ export default function Dashboard() {
           images,
           addImage,
           deleteImage,
+          addImages,
           resetImages,
           subject,
           setSubject,

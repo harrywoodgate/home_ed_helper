@@ -5,6 +5,7 @@ export default function GenForm() {
     images,
     addImage,
     deleteImage,
+    addImages,
     subject,
     setSubject,
     summary,
@@ -69,6 +70,13 @@ export default function GenForm() {
         value={summary}
       />
       <label className="font-medium">Pictures:</label>
+      <div className="w-full border-border border-2 h-[400px] flex justify-center items-center"
+      onDragOver={(e) => e.preventDefault()}
+      onDrop={(e) => {
+        e.preventDefault();
+        addImages(e);
+      }}
+      >Drag and drop your pictures here</div>
       <div className="flex gap-x-4">
         {images.length > 0 &&
           images.map((image, i) => (
