@@ -4,7 +4,7 @@ import { supabase } from "../../supabaseClient";
 
 export default function Nav({ selected, setSelected }) {
   const selectedStyling =
-    "flex items-center gap-x-2 font-medium bg-background w-full rounded-md p-3 text-xs text-secondary";
+    "flex items-center gap-x-2 font-medium bg-darker_background w-full rounded-md p-3 text-xs text-secondary";
   const unselectedStyling =
     "flex items-center gap-x-2 font-medium w-full rounded-md p-3 text-xs text-secondary_text hover:bg-background";
 

@@ -7,7 +7,8 @@ export default {
         background: 'var(--background)',
         border: 'var(--border)',
         secondary: 'var(--secondary-blue)',
-        secondary_text: 'var(--secondary-text)'
+        secondary_text: 'var(--secondary-text)',
+        darker_background: 'var(--darker-background)'
       }
     },
   },

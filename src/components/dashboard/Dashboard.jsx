@@ -11,7 +11,7 @@ export default function Dashboard() {
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
   const [selected, setSelected] = useState('Generator');
   const { history, loading, deleteHistory, addHistory } = useManageHistory();
-  const { images, addImage, deleteImage, resetImages, addImages } = useManageImages();
+  const { images, selectImages, deleteImage, resetImages, dropImages } = useManageImages();
 
   return (
     <div className="grid grid-cols-[240px_3fr] min-h-screen grid-rows-[auto_1fr]">
@@ -24,9 +24,9 @@ export default function Dashboard() {
           deleteHistory,
           addHistory,
           images,
-          addImage,
+          selectImages,
           deleteImage,
-          addImages,
+          dropImages,
           resetImages,
           subject,
           setSubject,
