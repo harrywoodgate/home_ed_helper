@@ -12,7 +12,6 @@ export function useManageImages() {
     });
   }
 
-  // wont let you add 2 of the same picture in a row, also goes a bit wierd after deleting one and then adding the same one again
   const selectImages = async (e) => {
     const files = Array.from(e.target.files);
     const newImages = await Promise.all(

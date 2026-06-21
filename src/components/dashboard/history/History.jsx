@@ -2,9 +2,12 @@ import { downloadPdf } from "../../../utils/downloadPdf";
 import { previewPdf } from "../../../utils/previewPdf";
 import { useOutletContext } from "react-router";
 import { fetchBlob } from "../../../utils/fetchBlob";
+import { useState } from "react";
+import DeletePopUp from "./DeletePopUp";
 
 export default function History() {
-  const { history, loading, deleteHistory } = useOutletContext();
+  const [deleteFile, setDeleteFile] = useState(false);
+  const { history, loading } = useOutletContext();
 
   return (
     <div className="flex justify-center pb-8">
@@ -62,9 +65,18 @@ export default function History() {
                 </button>
                 <button
                   className="flex items-center gap-x-3 text-sm text-red-500"
-                  onClick={() => deleteHistory(report.file_path)}
+                  onClick={() => {
+                    setDeleteFile({
+                      filePath: report.file_path,
+                      fileName: report.file_name,
+                    });
+                  }}
                 >
-                  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 fill-red-500">
+                  <svg
+                    xmlns="http://www.w3.org/2000/svg"
+                    viewBox="0 0 24 24"
+                    className="w-5 h-5 fill-red-500"
+                  >
                     <title>trash-can-outline</title>
                     <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" />
                   </svg>
@@ -75,6 +87,7 @@ export default function History() {
           ))
         )}
       </div>
+      <DeletePopUp deleteFile={deleteFile} setDeleteFile={setDeleteFile}/>
     </div>
   );
 }
