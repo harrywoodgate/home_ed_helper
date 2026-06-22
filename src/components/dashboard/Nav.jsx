@@ -1,19 +1,10 @@
 import { Link } from "react-router";
-import { useNavigate } from "react-router";
-import { supabase } from "../../supabaseClient";
 
-export default function Nav({ selected, setSelected }) {
+export default function Nav({ selected, setSelected, setShowLogoutPopup }) {
   const selectedStyling =
     "flex items-center gap-x-2 font-medium bg-darker_background w-full rounded-md p-3 text-xs text-secondary";
   const unselectedStyling =
     "flex items-center gap-x-2 font-medium w-full rounded-md p-3 text-xs text-secondary_text hover:bg-background";
-
-  const navigate = useNavigate();
-
-  async function logout() {
-    await supabase.auth.signOut();
-    navigate("/");
-  }
 
   return (
     <nav className="py-6 px-4 flex flex-col row-start-1 row-end-3 bg-white items-start justify-between shadow-sm border-r shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)]">
@@ -68,7 +59,7 @@ export default function Nav({ selected, setSelected }) {
         </Link>
       </div>
       <button
-        onClick={logout}
+        onClick={() => setShowLogoutPopup(true)}
         className="flex items-center gap-x-2 font-medium rounded-md p-3 text-xs w-full text-left hover:bg-background"
       >
         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 fill-secondary_text">
