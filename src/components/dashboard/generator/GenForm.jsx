@@ -74,7 +74,7 @@ export default function GenForm() {
       />
       <label className="font-medium">Pictures:</label>
       <div
-        className="w-full border-border border-dashed border-2 bg-background h-[150px] flex flex-col justify-center items-center gap-y-1 rounded-md"
+        className="w-full border-border border-dashed border-2 bg-background h-[150px] flex flex-col justify-center items-center gap-y-1 rounded-md cursor-pointer"
         onDragOver={(e) => e.preventDefault()}
         onDrop={(e) => {
           e.preventDefault();
