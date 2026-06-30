@@ -1,14 +1,15 @@
-import LoginCard from "./LoginCard";
-import LoginBrandingCard from "./LoginBrandingCard";
+import SignUpCard from "./SignupCard";
+import SingupBrandingCard from "./SignupBrandingCard";
 
-export default function Login() {
+export default function Signup() {
+
   return (
     <div className="flex">
       <div className="w-[45%] bg-violet-50 flex justify-start pl-[60px]">
-        <LoginBrandingCard />
+        <SingupBrandingCard />
       </div>
       <div className="flex flex-col justify-center items-center min-h-[100vh] gap-y-4 w-[55%] bg-white py-4">
-        <LoginCard />
+        <SignUpCard />
       </div>
     </div>
   );

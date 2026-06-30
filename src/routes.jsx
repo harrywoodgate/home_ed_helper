@@ -2,7 +2,7 @@ import App from "./App";
 import Generator from "./components/dashboard/generator/Generator";
 import ProtectedRoute from "./components/ProtectedRoute";
 import Login from "./components/login/Login";
-import Signup from "./components/Signup";
+import Signup from "./components/signup/Signup";
 import Dashboard from "./components/dashboard/Dashboard";
 import History from "./components/dashboard/history/History";
 

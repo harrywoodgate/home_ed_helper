@@ -1,6 +1,6 @@
-export default function BrandingCard() {
+export default function SingupBrandingCard() {
   return (
-    <div className="flex flex-col justify-center h-full w-[338px]">
+    <div className="flex flex-col justify-center h-screen w-[338px]">
       <div className="flex items-center gap-x-3 mb-8">
         <img
           src="../../src/img/logo_two.png"
@@ -9,13 +9,10 @@ export default function BrandingCard() {
         />
         <h1 className="text-xl font-bold">Home Ed Helper</h1>
       </div>
-      <p className="text-3xl font-bold flex flex-col gap-y-1 mb-4">
-        Create professional
-        <p className="text-secondary">home education reports</p> in seconds.
-      </p>
+      <p className="text-3xl font-bold mb-1">Simplify Learning,</p>
+      <p className="text-3xl font-bold mb-4">every day.</p>
       <p className="text-secondary_text">
-        Save time, stay organised, and focus on what matters most - your childs
-        learning
+        Create engaging daily learning reports in minutes, not hours
       </p>
       <div>
         <div className="flex gap-x-4 mt-6 items-center">
@@ -30,7 +27,7 @@ export default function BrandingCard() {
             </svg>
           </div>
           <div>
-            <p className="text-xs font-bold mb-1">Easy Report Creation</p>
+            <p className="text-xs font-bold mb-1">Save hours each week</p>
             <p className="text-xs text-secondary_text">
               Generate detailed reports in minutes
             </p>
@@ -41,22 +38,8 @@ export default function BrandingCard() {
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
-              className="fill-secondary h-6 w-6"
+              className="h-6 w-6 fill-secondary"
             >
-              <title>clock-outline</title>
-              <path d="M12,20A8,8 0 0,0 20,12A8,8 0 0,0 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20M12,2A10,10 0 0,1 22,12A10,10 0 0,1 12,22C6.47,22 2,17.5 2,12A10,10 0 0,1 12,2M12.5,7V12.25L17,14.92L16.25,16.15L11,13V7H12.5Z" />
-            </svg>
-          </div>
-          <div>
-            <p className="text-xs font-bold mb-1">Organised History</p>
-            <p className="text-xs text-secondary_text">
-              View and manage your reports
-            </p>
-          </div>
-        </div>
-        <div className="flex gap-x-4 mt-6 items-center">
-          <div className="bg-violet-200 rounded-full w-10 h-10 flex items-center justify-center">
-            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="h-6 w-6 fill-secondary">
               <title>shield-outline</title>
               <path d="M21,11C21,16.55 17.16,21.74 12,23C6.84,21.74 3,16.55 3,11V5L12,1L21,5V11M12,21C15.75,20 19,15.54 19,11.22V6.3L12,3.18L5,6.3V11.22C5,15.54 8.25,20 12,21Z" />
             </svg>
@@ -64,7 +47,25 @@ export default function BrandingCard() {
           <div>
             <p className="text-xs font-bold mb-1">Secure and private</p>
             <p className="text-xs text-secondary_text">
-              Your data is never shared
+              Your data is encrypted and never shared
+            </p>
+          </div>
+        </div>
+        <div className="flex gap-x-4 mt-6 items-center">
+          <div className="bg-violet-200 rounded-full w-10 h-10 flex items-center justify-center">
+            <svg
+              xmlns="http://www.w3.org/2000/svg"
+              viewBox="0 0 24 24"
+              className="fill-secondary h-6 w-6"
+            >
+              <title>check-circle-outline</title>
+              <path d="M12 2C6.5 2 2 6.5 2 12S6.5 22 12 22 22 17.5 22 12 17.5 2 12 2M12 20C7.59 20 4 16.41 4 12S7.59 4 12 4 20 7.59 20 12 16.41 20 12 20M16.59 7.58L10 14.17L7.41 11.59L6 13L10 17L18 9L16.59 7.58Z" />
+            </svg>
+          </div>
+          <div>
+            <p className="text-xs font-bold mb-1">Made for home educators</p>
+            <p className="text-xs text-secondary_text">
+              Built by home educators, for home educators
             </p>
           </div>
         </div>
