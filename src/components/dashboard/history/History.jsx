@@ -4,6 +4,7 @@ import { useOutletContext } from "react-router";
 import { fetchBlob } from "../../../utils/fetchBlob";
 import { useState } from "react";
 import DeletePopUp from "./DeletePopUp";
+import EmptyHistoryPage from "./EmptyHistoryPage";
 
 export default function History() {
   const [deleteFile, setDeleteFile] = useState(false);
@@ -15,7 +16,7 @@ export default function History() {
         <h1 className="text-2xl font-semibold mb-4">History</h1>
         {loading ? <div>Loading...</div> : ""}
         {history.length === 0 && !loading ? (
-          <div>Oops looks like you havent uploaded anything yet!</div>
+          <EmptyHistoryPage />
         ) : (
           history.map((report) => (
             <div

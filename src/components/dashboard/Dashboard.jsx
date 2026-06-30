@@ -36,6 +36,7 @@ export default function Dashboard() {
           setSummary,
           date,
           setDate,
+          setSelected,
         }}
       />
       <LogoutPopUp active={showLogoutPopup} setActive={setShowLogoutPopup} />
