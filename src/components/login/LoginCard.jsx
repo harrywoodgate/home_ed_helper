@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { supabase } from "../../supabaseClient";
 import { useNavigate, Link } from "react-router";
+import logoTwo from '../../img/logo_two.png'
 
 export default function LoginCard() {
   const [email, setEmail] = useState("");
@@ -23,7 +24,7 @@ export default function LoginCard() {
     <div className="bg-white p-12 flex flex-col items-center justify-center rounded-xl gap-y-4 w-[500px] border shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)]">
       <div className="bg-indigo-50 w-[70px] h-[70px] flex items-center justify-center rounded-full">
         <img
-          src="../../../src/img/logo_two.png"
+          src={logoTwo}
           alt="logo"
           className="w-[30px] h-[30px]"
         />

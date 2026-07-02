@@ -1,9 +1,11 @@
+import logoTwo from '../../img/logo_two.png'
+
 export default function SingupBrandingCard() {
   return (
     <div className="flex flex-col justify-center h-screen w-[338px]">
       <div className="flex items-center gap-x-3 mb-8">
         <img
-          src="../../src/img/logo_two.png"
+          src={logoTwo}
           alt="logo"
           className="w-7 h-8 pb-[3px]"
         />

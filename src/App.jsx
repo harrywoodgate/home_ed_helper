@@ -1,5 +1,6 @@
 import { Link } from "react-router";
 import { useEffect } from "react";
+import logo from './img/logo.png' 
 
 function App() {
   // doesnt work in generator still
@@ -19,7 +20,7 @@ function App() {
     <div className="flex flex-col gap-y-3 justify-center items-center h-screen">
       <div className="overflow-hidden w-[450px]">
         <div className="flex items-center gap-x-2 animate-slide_in">
-          <img src="../src/img/logo.png" alt="" className="w-[72px] h-[72px]"/>
+          <img src={logo} alt="" className="w-[72px] h-[72px]"/>
           <h1 className="text-5xl font-bold">Home Ed Helper</h1>
         </div>
       </div>

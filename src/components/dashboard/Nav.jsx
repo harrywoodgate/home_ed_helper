@@ -1,4 +1,5 @@
 import { Link } from "react-router";
+import logo from '../../img/logo.png'
 
 export default function Nav({ selected, setSelected, setShowLogoutPopup }) {
   const selectedStyling =
@@ -11,7 +12,7 @@ export default function Nav({ selected, setSelected, setShowLogoutPopup }) {
       <div className="flex flex-col items-center w-full">
         <div className="flex items-center -ml-3">
           <img
-            src="../../../src/img/logo.png"
+            src={logo}
             alt="logo"
             className="w-[45px]"
           />
