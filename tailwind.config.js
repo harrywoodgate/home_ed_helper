@@ -11,13 +11,19 @@ export default {
         darker_background: 'var(--darker-background)'
       },
       keyframes: {
-        scaleX: {
-          '0%': {transform: 'scaleX(0)'},
-          '100%': {transform: 'scaleX(1)'}
+        slide_in: {
+          '0%': {transform: 'translateX(-440px)'},
+          '100%': {transform: 'translateX(0)'}
+        },
+        pop: {
+          '0%': {transform: 'scale(1)'},
+          '50%': {transform: 'scale(1.1)'},
+          '100%': {transform: 'scale(1)'}
         }
       },
       animation: {
-        scaleX: 'scaleX 1s linear normal forwards'
+        slide_in: 'slide_in 2s ease-out forwards',
+        pop: 'pop 1s 1s'
       }
     },
   },
