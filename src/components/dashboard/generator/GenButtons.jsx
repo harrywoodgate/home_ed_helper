@@ -51,9 +51,6 @@ export default function GenButtons() {
         <button
           onClick={() => {
             addHistory(document, fileName);
-            setSummary("");
-            setSubject("");
-            resetImages();
           }}
           className="bg-secondary px-4 w-[100px] rounded-md font-medium text-white text-xs flex items-center justify-center gap-x-2 hover:bg-indigo-700"
         >
@@ -71,11 +68,6 @@ export default function GenButtons() {
           document={document}
           fileName={`${fileName}.pdf`}
           className="bg-white px-4 py-3 rounded-md font-medium text-xs border shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)] flex items-center hover:bg-slate-50"
-          onClick={() => {
-            setSummary("");
-            setSubject("");
-            resetImages();
-          }}
         >
           {({ loading }) => (
             <div className="flex items-center gap-2">
@@ -91,6 +83,20 @@ export default function GenButtons() {
             </div>
           )}
         </PDFDownloadLink>
+        <button
+          onClick={async () => {
+            setSummary("");
+            setSubject("");
+            resetImages();
+          }}
+          className="bg-white px-4 py-3 rounded-md font-medium text-xs border shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)] flex items-center gap-x-2 hover:bg-slate-50"
+        >
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4">
+            <title>refresh</title>
+            <path d="M17.65,6.35C16.2,4.9 14.21,4 12,4A8,8 0 0,0 4,12A8,8 0 0,0 12,20C15.73,20 18.84,17.45 19.73,14H17.65C16.83,16.33 14.61,18 12,18A6,6 0 0,1 6,12A6,6 0 0,1 12,6C13.66,6 15.14,6.69 16.22,7.78L13,11H20V4L17.65,6.35Z" />
+          </svg>
+          <span>New report</span>
+        </button>
       </div>
     </>
   );
