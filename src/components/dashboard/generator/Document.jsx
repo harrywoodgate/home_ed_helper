@@ -26,8 +26,8 @@ export const MyDocument = ({ subject, summary, images, date }) => (
       <Text style={styles.summary}>{summary}</Text>
       <View style={styles.imgContainer}>
         {images.length > 0 &&
-          images.map((image) => (
-            <Image src={image.base64} style={styles.img} key={image.name} />
+          images.map((image, i) => (
+            <Image src={image.base64} style={styles.img} key={i} />
           ))}
       </View>
     </Page>

@@ -1,20 +1,7 @@
 import { Link } from "react-router";
-import { useEffect } from "react";
 import logo from './img/logo.png' 
 
 function App() {
-  // doesnt work in generator still
-  useEffect(() => {
-    const preventDefault = (e) => e.preventDefault();
-
-    window.addEventListener("dragover", preventDefault);
-    window.addEventListener("drop", preventDefault);
-
-    return () => {
-      window.removeEventListener("dragover", preventDefault);
-      window.removeEventListener("drop", preventDefault);
-    };
-  }, []);
 
   return (
     <div className="flex flex-col gap-y-3 justify-center items-center h-screen">

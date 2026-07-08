@@ -37,7 +37,7 @@ export default function GenForm() {
               <option value="Science">Science</option>
             </select>
             <svg
-              class="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2"
+              className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2"
               width="20"
               height="20"
               fill="#0F172A"
