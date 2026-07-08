@@ -42,8 +42,8 @@ export function useManageImages() {
     setImages((prev) => [...prev, ...newImages]);
   };
 
-  const deleteImage = (name) => {
-    setImages(images.filter((image) => image.name != name));
+  const deleteImage = (index) => {
+    setImages(images.filter((image) => images.indexOf(image) != index));
   };
 
   const resetImages = () => {

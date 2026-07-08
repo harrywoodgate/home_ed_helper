@@ -112,7 +112,7 @@ export default function GenForm() {
               />
               <div
                 className="absolute top-0 right-0 bg-white w-5 h-5 text-text flex justify-center items-center text-[8px] rounded-full cursor-pointer"
-                onClick={() => deleteImage(image.name)}
+                onClick={() => deleteImage(i)}
               >
                 X
               </div>
