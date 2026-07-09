@@ -19,15 +19,15 @@ export default function GenForm() {
 
   return (
     <>
-      <div className="flex gap-x-8 w-full">
+      <div className="flex gap-x-2 sm:gap-x-8 w-full">
         <div className="flex flex-col gap-y-3 w-full">
-          <label htmlFor="subject" className="font-medium">
+          <label htmlFor="subject" className="font-medium text-xs sm:text-base">
             Subject
           </label>
           <div className="relative">
             <select
               id="subject"
-              className="px-3 py-2 bg-white border-border border-2 rounded-md text-sm appearance-none w-full"
+              className="h-[30px] sm:h-auto px-2 py-1 sm:px-3 sm:py-2 bg-white border-border border-2 rounded-md text-xs sm:text-sm appearance-none w-full"
               onChange={(e) => setSubject(e.target.value)}
               value={subject}
             >
@@ -37,7 +37,7 @@ export default function GenForm() {
               <option value="Science">Science</option>
             </select>
             <svg
-              className="pointer-events-none absolute right-3 top-1/2 -translate-y-1/2"
+              className="pointer-events-none absolute right-1 sm:right-3 top-1/2 -translate-y-1/2"
               width="20"
               height="20"
               fill="#0F172A"
@@ -48,7 +48,7 @@ export default function GenForm() {
           </div>
         </div>
         <div className="flex flex-col gap-y-3 w-full">
-          <label htmlFor="date" className="font-medium">
+          <label htmlFor="date" className="font-medium text-xs sm:text-base">
             Date
           </label>
           <input
@@ -57,22 +57,22 @@ export default function GenForm() {
             id="date"
             value={date}
             onChange={(e) => setDate(e.target.value)}
-            className="h-[40px] border-border border-2 rounded-md px-3 py-2 text-sm"
+            className="h-[30px] sm:h-[40px] border-border border-2 rounded-md px-2 py-1 sm:px-3 sm:py-2 text-xs sm:text-sm"
           />
         </div>
       </div>
-      <label htmlFor="summary" className="font-medium">
+      <label htmlFor="summary" className="font-medium text-xs sm:text-base">
         Summary
       </label>
       <textarea
         id="summary"
-        className="border-border border-2 w-full p-1 resize-none rounded-md h-[200px]"
+        className="text-xs sm:text-base border-border border-2 w-full p-1 resize-none rounded-md h-[150px] sm:h-[200px]"
         placeholder="Write a summary here..."
         onChange={(e) => setSummary(e.target.value)}
         rows={4}
         value={summary}
       />
-      <label className="font-medium">Pictures:</label>
+      <label className="font-medium text-xs sm:text-base">Pictures:</label>
       <div
         className="w-full border-border border-dashed border-2 bg-background h-[150px] flex flex-col justify-center items-center gap-y-1 rounded-md cursor-pointer"
         onDragOver={(e) => e.preventDefault()}
@@ -98,8 +98,8 @@ export default function GenForm() {
           <title>image-plus-outline</title>
           <path d="M13 19C13 19.7 13.13 20.37 13.35 21H5C3.9 21 3 20.11 3 19V5C3 3.9 3.9 3 5 3H19C20.11 3 21 3.9 21 5V13.35C20.37 13.13 19.7 13 19 13V5H5V19H13M13.96 12.29L11.21 15.83L9.25 13.47L6.5 17H13.35C13.75 15.88 14.47 14.91 15.4 14.21L13.96 12.29M20 18V15H18V18H15V20H18V23H20V20H23V18H20Z" />
         </svg>
-        <p>Drag and drop your images here</p>
-        <p className="text-secondary_text">or click to upload</p>
+        <p className="text-xs sm:text-base">Drag and drop your images here</p>
+        <p className="text-secondary_text text-xs sm:text-base">or click to upload</p>
       </div>
       <div className="flex gap-x-4">
         {images.length > 0 &&
@@ -107,7 +107,7 @@ export default function GenForm() {
             <div className="relative" key={i}>
               <img
                 src={image.base64}
-                className="w-28 h-28 rounded"
+                className="w-20 h-20 sm:w-28 sm:h-28 rounded"
                 alt={image.name}
               />
               <div
@@ -118,7 +118,7 @@ export default function GenForm() {
               </div>
             </div>
           ))}
-        <label className="cursor-pointer border-border border-dashed border-2 bg-background w-28 h-28 flex items-center justify-center text-5xl text-secondary font-extralight rounded">
+        <label className="cursor-pointer border-border border-dashed border-2 bg-background w-20 h-20 sm:w-28 sm:h-28 flex items-center justify-center text-5xl text-secondary font-extralight rounded">
           +
           <input
             type="file"

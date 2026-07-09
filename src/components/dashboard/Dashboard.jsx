@@ -30,7 +30,7 @@ export default function Dashboard() {
   }, []);
 
   return (
-    <div className="grid grid-cols-[240px_3fr] min-h-screen grid-rows-[auto_1fr]">
+    <div className="flex flex-col lg:grid grid-cols-[240px_1fr] min-h-screen grid-rows-[auto_1fr]">
       <Header setShowLogoutPopup={setShowLogoutPopup} />
       <Nav
         selected={selected}

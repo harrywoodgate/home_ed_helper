@@ -8,7 +8,7 @@ export default function Nav({ selected, setSelected, setShowLogoutPopup }) {
     "flex items-center gap-x-2 font-medium w-full rounded-md p-3 text-xs text-secondary_text hover:bg-background";
 
   return (
-    <nav className="py-6 px-4 flex flex-col row-start-1 row-end-3 bg-white items-start justify-between shadow-sm border-r shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)]">
+    <nav className="hidden py-6 px-4 lg:flex flex-col row-start-1 row-end-3 bg-white items-start justify-between shadow-sm border-r shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)]">
       <div className="flex flex-col items-center w-full">
         <div className="flex items-center -ml-3">
           <img
