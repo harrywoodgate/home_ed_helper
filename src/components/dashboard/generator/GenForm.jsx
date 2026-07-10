@@ -74,7 +74,7 @@ export default function GenForm() {
       />
       <label className="font-medium text-xs sm:text-base">Pictures:</label>
       <div
-        className="w-full border-border border-dashed border-2 bg-background h-[150px] flex flex-col justify-center items-center gap-y-1 rounded-md cursor-pointer"
+        className="w-full border-border border-dashed border-2 bg-background h-[150px] hidden sm:flex flex-col justify-center items-center gap-y-1 rounded-md cursor-pointer"
         onDragOver={(e) => e.preventDefault()}
         onDrop={(e) => {
           e.preventDefault();
@@ -118,7 +118,7 @@ export default function GenForm() {
               </div>
             </div>
           ))}
-        <label className="cursor-pointer border-border border-dashed border-2 bg-background w-20 h-20 sm:w-28 sm:h-28 flex items-center justify-center text-5xl text-secondary font-extralight rounded">
+        <label className="cursor-pointer border-border border-dashed border-2 bg-background w-20 h-20 sm:w-28 sm:h-28 flex items-center justify-center text-5xl text-secondary font-extralight rounded mb-2 sm:mb-0">
           +
           <input
             type="file"
