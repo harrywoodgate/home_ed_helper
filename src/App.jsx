@@ -6,7 +6,7 @@ function App() {
   return (
     <div className="flex flex-col gap-y-2 sm:gap-y-3 justify-center items-center h-screen">
       <div className="overflow-hidden">
-        <div className="flex items-center sm:gap-x-2 animate-slide_in">
+        <div className="flex items-center sm:gap-x-2 animate-app_slide_in">
           <img src={logo} alt="" className="w-[45px] sm:w-[72px] sm:h-[72px]"/>
           <h1 className="text-2xl sm:text-5xl font-bold">Home Ed Helper</h1>
         </div>

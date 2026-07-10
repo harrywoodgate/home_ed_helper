@@ -11,8 +11,12 @@ export default {
         darker_background: 'var(--darker-background)'
       },
       keyframes: {
-        slide_in: {
+        app_slide_in: {
           '0%': {transform: 'translateX(-440px)'},
+          '100%': {transform: 'translateX(0)'}
+        },
+        nav_slide_in: {
+          '0%': {transform: 'translateX(-240px)'},
           '100%': {transform: 'translateX(0)'}
         },
         pop: {
@@ -22,7 +26,8 @@ export default {
         }
       },
       animation: {
-        slide_in: 'slide_in 2s ease-out forwards',
+        app_slide_in: 'app_slide_in 2s ease-out forwards',
+        nav_slide_in: 'nav_slide_in 0.2s ease-out forwards',
         pop: 'pop 1s 1s'
       }
     },

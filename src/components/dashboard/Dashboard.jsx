@@ -13,6 +13,7 @@ export default function Dashboard() {
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
   const [selected, setSelected] = useState("Generator");
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
+  const [showMobileNav, setShowMobileNav] = useState(false);
   const { history, loading, deleteHistory, addHistory } = useManageHistory();
   const { images, selectImages, deleteImage, resetImages, dropImages } =
     useManageImages();
@@ -31,11 +32,13 @@ export default function Dashboard() {
 
   return (
     <div className="flex flex-col lg:grid grid-cols-[240px_1fr] min-h-screen grid-rows-[auto_1fr]">
-      <Header setShowLogoutPopup={setShowLogoutPopup} />
+      <Header setShowLogoutPopup={setShowLogoutPopup} setShowMobileNav={setShowMobileNav} />
       <Nav
         selected={selected}
         setSelected={setSelected}
         setShowLogoutPopup={setShowLogoutPopup}
+        showMobileNav={showMobileNav}
+        setShowMobileNav={setShowMobileNav}
       />
       <Outlet
         context={{
