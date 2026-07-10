@@ -11,8 +11,8 @@ export default function History() {
   const { history, loading } = useOutletContext();
 
   return (
-    <div className="flex justify-center pb-8">
-      <div className="w-[1000px] flex flex-col gap-y-2">
+    <div className="flex w-full justify-center pb-8 px-4 sm:px-6">
+      <div className="w-full lg:w-[1000px] flex flex-col gap-y-2">
         <h1 className="text-2xl font-semibold mb-4">History</h1>
         {loading ? <div>Loading...</div> : ""}
         {history.length === 0 && !loading ? (
@@ -20,19 +20,19 @@ export default function History() {
         ) : (
           history.map((report) => (
             <div
-              className="flex px-6 h-[106px] gap-x-2 items-center justify-between mt-1 bg-white rounded-2xl border shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)]"
+              className="flex flex-wrap px-6 py-4 sm:py-0 min-h-[106px] gap-x-2 items-center justify-between mt-1 bg-white rounded-2xl border shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)] gap-y-4"
               key={report.id}
             >
-              <div className="flex items-center gap-x-6">
-                <h3 className="font-semibold w-[130px] text-center">
+              <div className="flex items-center sm:gap-x-6 w-full sm:w-auto">
+                <h3 className="font-semibold w-[50%] sm:w-[130px] text-center">
                   {report.file_name.split("-")[0]}
                 </h3>
                 <div className="h-[50px] w-[2px] bg-border"></div>
-                <p>{report.file_name.split("-")[1]}</p>
+                <p className="w-[50%] sm:w-auto text-center">{report.file_name.split("-")[1]}</p>
               </div>
-              <div className="flex gap-x-6">
+              <div className="flex w-full sm:w-auto justify-center flex-wrap gap-x-6 gap-y-4">
                 <button
-                  className="flex items-center gap-x-3 text-sm"
+                  className="flex items-center gap-x-2 sm:gap-x-3 text-sm"
                   onClick={async () => {
                     const blob = await fetchBlob(report.file_path);
                     previewPdf(blob);
@@ -52,7 +52,7 @@ export default function History() {
                   onClick={() =>
                     downloadPdf(report.file_path, report.file_name)
                   }
-                  className="flex items-center gap-x-3 text-sm"
+                  className="flex items-center gap-x-2 sm:gap-x-3 text-sm"
                 >
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -65,7 +65,7 @@ export default function History() {
                   <span>Download</span>
                 </button>
                 <button
-                  className="flex items-center gap-x-3 text-sm text-red-500"
+                  className="flex items-center gap-x-2 sm:gap-x-3 text-sm text-red-500"
                   onClick={() => {
                     setDeleteFile({
                       filePath: report.file_path,
