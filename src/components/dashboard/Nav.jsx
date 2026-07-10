@@ -1,15 +1,37 @@
 import { Link } from "react-router";
-import logo from '../../img/logo.png'
+import logo from "../../img/logo.png";
+import { useEffect } from "react";
 
-export default function Nav({ selected, setSelected, setShowLogoutPopup, showMobileNav, setShowMobileNav }) {
+export default function Nav({
+  selected,
+  setSelected,
+  setShowLogoutPopup,
+  showMobileNav,
+  setShowMobileNav,
+}) {
   const selectedStyling =
     "flex items-center gap-x-2 font-medium bg-darker_background w-full rounded-md p-3 text-xs text-secondary";
   const unselectedStyling =
     "flex items-center gap-x-2 font-medium w-full rounded-md p-3 text-xs text-secondary_text hover:bg-background";
 
+  useEffect(() => {
+    if (showMobileNav) {
+      document.body.classList.add('overflow-hidden')
+    }
+    else {
+      document.body.classList.remove('overflow-hidden')
+    }
+  }, [showMobileNav])
+
   return (
     <>
-      <nav className={showMobileNav ? "animate-nav_slide_in absolute h-screen z-20 w-[240px] py-6 px-4 flex flex-col bg-white items-start justify-between shadow-sm border-r shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)]" : "hidden lg:flex w-[240px] py-6 px-4 flex-col row-start-1 row-end-3 bg-white items-start justify-between shadow-sm border-r shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)]"}>
+      <nav
+        className={
+          showMobileNav
+            ? "animate-nav_slide_in absolute h-[100svh] z-20 w-[240px] py-6 px-4 flex flex-col bg-white items-start justify-between shadow-sm border-r shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)]"
+            : "hidden lg:flex w-[240px] py-6 px-4 flex-col row-start-1 row-end-3 bg-white items-start justify-between shadow-sm border-r shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)]"
+        }
+      >
         <div className="flex flex-col items-start w-full">
           <div className="flex items-center">
             <img
@@ -26,13 +48,18 @@ export default function Nav({ selected, setSelected, setShowLogoutPopup, showMob
                 ? `${"mt-8"} ${selectedStyling}`
                 : `${"mt-8"} ${unselectedStyling}`
             }
-            onClick={() => {setSelected("Generator"); setShowMobileNav(false);}}
+            onClick={() => {
+              setSelected("Generator");
+              setShowMobileNav(false);
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               className={
-                selected === "Generator" ? "w-5 h-5 fill-secondary" : "w-5 h-5 fill-secondary_text"
+                selected === "Generator"
+                  ? "w-5 h-5 fill-secondary"
+                  : "w-5 h-5 fill-secondary_text"
               }
             >
               <title>generator</title>
@@ -45,13 +72,18 @@ export default function Nav({ selected, setSelected, setShowLogoutPopup, showMob
             className={
               selected === "History" ? selectedStyling : unselectedStyling
             }
-            onClick={() => {setSelected("History"); setShowMobileNav(false);}}
+            onClick={() => {
+              setSelected("History");
+              setShowMobileNav(false);
+            }}
           >
             <svg
               xmlns="http://www.w3.org/2000/svg"
               viewBox="0 0 24 24"
               className={
-                selected === "History" ? "w-5 h-5 fill-secondary" : "w-5 h-5 fill-secondary_text"
+                selected === "History"
+                  ? "w-5 h-5 fill-secondary"
+                  : "w-5 h-5 fill-secondary_text"
               }
             >
               <title>history</title>
@@ -64,14 +96,25 @@ export default function Nav({ selected, setSelected, setShowLogoutPopup, showMob
           onClick={() => setShowLogoutPopup(true)}
           className="flex items-center gap-x-2 font-medium rounded-md p-3 text-xs w-full text-left hover:bg-background"
         >
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-5 h-5 fill-secondary_text">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            className="w-5 h-5 fill-secondary_text"
+          >
             <title>logout</title>
             <path d="M17 7L15.59 8.41L18.17 11H8V13H18.17L15.59 15.58L17 17L22 12M4 5H12V3H4C2.9 3 2 3.9 2 5V19C2 20.1 2.9 21 4 21H12V19H4V5Z" />
           </svg>
           <span className="text-secondary_text">Logout</span>
         </button>
       </nav>
-      <div className={showMobileNav ? "fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex justify-start z-10" : "hidden"} onClick={() => setShowMobileNav(false)}></div>
-</>
+      <div
+        className={
+          showMobileNav
+            ? "fixed inset-0 bg-slate-900/40 backdrop-blur-sm flex justify-start z-10"
+            : "hidden"
+        }
+        onClick={() => setShowMobileNav(false)}
+      ></div>
+    </>
   );
 }
