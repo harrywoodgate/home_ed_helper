@@ -93,7 +93,7 @@ export default function Nav({
           </Link>
         </div>
         <button
-          onClick={() => setShowLogoutPopup(true)}
+          onClick={() => {setShowLogoutPopup(true); setShowMobileNav(false)}}
           className="flex items-center gap-x-2 font-medium rounded-md p-3 text-xs w-full text-left hover:bg-background"
         >
           <svg

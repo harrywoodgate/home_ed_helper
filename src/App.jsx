@@ -4,7 +4,7 @@ import logo from './img/logo.png'
 function App() {
 
   return (
-    <div className="flex flex-col gap-y-2 sm:gap-y-3 justify-center items-center h-screen">
+    <div className="flex flex-col gap-y-2 sm:gap-y-3 justify-center items-center h-[100svh]">
       <div className="overflow-hidden">
         <div className="flex items-center sm:gap-x-2 animate-app_slide_in">
           <img src={logo} alt="" className="w-[45px] sm:w-[72px] sm:h-[72px]"/>

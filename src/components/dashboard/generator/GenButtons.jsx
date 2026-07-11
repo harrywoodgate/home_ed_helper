@@ -30,13 +30,13 @@ export default function GenButtons() {
 
   return (
     <>
-      <div className="flex flex-wrap w-full justify-center sm:justify-end gap-y-4 gap-x-4">
+      <div className="flex flex-wrap w-full justify-between sm:justify-end gap-y-4 sm:gap-x-4">
         <button
           onClick={async () => {
             const blob = await pdf(document).toBlob();
             previewPdf(blob);
           }}
-          className="w-[114px] sm:w-auto bg-white py-2 sm:px-4 sm:py-3 rounded-md font-medium text-xs border shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)] flex items-center justify-center gap-x-2 hover:bg-slate-50"
+          className="w-[48%] sm:w-auto bg-white py-2 sm:px-4 sm:py-3 rounded-md font-medium text-xs border shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)] flex items-center justify-center gap-x-2 hover:bg-slate-50"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -52,7 +52,7 @@ export default function GenButtons() {
           onClick={() => {
             addHistory(document, fileName);
           }}
-          className="bg-secondary w-[114px] sm:w-auto py-2 sm:px-4 sm:py-3 rounded-md font-medium text-white text-xs flex items-center justify-center gap-x-2 hover:bg-indigo-700"
+          className="bg-secondary w-[48%] sm:w-auto py-2 sm:px-4 sm:py-3 rounded-md font-medium text-white text-xs flex items-center justify-center gap-x-2 hover:bg-indigo-700"
         >
           <svg
             xmlns="http://www.w3.org/2000/svg"
@@ -67,7 +67,7 @@ export default function GenButtons() {
         <PDFDownloadLink
           document={document}
           fileName={`${fileName}.pdf`}
-          className="bg-white w-[114px] sm:w-auto py-2 sm:px-4 sm:py-3 rounded-md font-medium text-xs border shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)] flex items-center justify-center hover:bg-slate-50"
+          className="bg-white w-[48%] sm:w-auto py-2 sm:px-4 sm:py-3 rounded-md font-medium text-xs border shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)] flex items-center justify-center hover:bg-slate-50"
         >
           {({ loading }) => (
             <div className="flex items-center gap-2">
@@ -89,7 +89,7 @@ export default function GenButtons() {
             setSubject("");
             resetImages();
           }}
-          className="bg-white w-[114px] sm:w-auto py-2 sm:px-4 sm:py-3 rounded-md font-medium text-xs border shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)] flex items-center justify-center gap-x-2 hover:bg-slate-50"
+          className="bg-white w-[48%] sm:w-auto py-2 sm:px-4 sm:py-3 rounded-md font-medium text-xs border shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)] flex items-center justify-center gap-x-2 hover:bg-slate-50"
         >
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 h-4">
             <title>refresh</title>
