@@ -5,6 +5,7 @@ import { fetchBlob } from "../../../utils/fetchBlob";
 import { useState } from "react";
 import DeletePopUp from "./DeletePopUp";
 import EmptyHistoryPage from "./EmptyHistoryPage";
+import WeekSelector from "./WeekSelector";
 
 export default function History() {
   const [deleteFile, setDeleteFile] = useState(false);
@@ -13,7 +14,10 @@ export default function History() {
   return (
     <div className="flex w-full justify-center pb-8 px-4 sm:px-6">
       <div className="w-full lg:w-[1000px] flex flex-col gap-y-2">
-        <h1 className="text-xl sm:text-2xl font-semibold mb-4">History</h1>
+        <div className="w-full flex items-center justify-between mb-4">
+          <h1 className="text-xl sm:text-2xl font-semibold">History</h1>
+          <WeekSelector />
+        </div>
         {loading ? <div>Loading...</div> : ""}
         {history.length === 0 && !loading ? (
           <EmptyHistoryPage />
