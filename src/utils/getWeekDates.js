@@ -13,10 +13,15 @@ function getWeekDates(year) {
   const date = getFirstMonday(year);
   const todaysDate = new Date();
 
-  // error 2 29th Marches maybe dont use ISO string might fix it
   while (date.getFullYear() === year) {
-    let monday = new Date(date).toISOString().split("T")[0];
-    const [monYear, monMonth, monDay] = monday.split("-");
+    let monday = new Date(date);
+    let [monYear, monMonth, monDay] = [
+      monday.getFullYear(),
+      monday.getMonth() + 1,
+      monday.getDate(),
+    ];
+    monDay < 10 ? (monDay = String(monDay).padStart(2, "0")) : monDay;
+    monMonth < 10 ? (monMonth = String(monMonth).padStart(2, "0")) : monMonth;
     const formattedMonday = `${monDay}/${monMonth}/${monYear}`;
     if (
       monDay > todaysDate.getDate() &&
@@ -25,8 +30,14 @@ function getWeekDates(year) {
       break;
     }
     date.setDate(date.getDate() + 6);
-    let sunday = new Date(date).toISOString().split("T")[0];
-    const [sunYear, sunMonth, sunDay] = sunday.split("-");
+    let sunday = new Date(date);
+    let [sunYear, sunMonth, sunDay] = [
+      sunday.getFullYear(),
+      sunday.getMonth() + 1,
+      sunday.getDate(),
+    ];
+    sunDay < 10 ? (sunDay = String(sunDay).padStart(2, "0")) : sunDay;
+    sunMonth < 10 ? (sunMonth = String(sunMonth).padStart(2, "0")) : sunMonth;
     const formattedSunday = `${sunDay}/${sunMonth}/${sunYear}`;
     weeks.push([formattedMonday, formattedSunday]);
     date.setDate(date.getDate() + 1);
@@ -34,7 +45,7 @@ function getWeekDates(year) {
 
   let sortedWeeks = [];
 
-  for (let i = weeks.length -1; i >= 0; i--) {
+  for (let i = weeks.length - 1; i >= 0; i--) {
     sortedWeeks.push(weeks[i]);
   }
 
