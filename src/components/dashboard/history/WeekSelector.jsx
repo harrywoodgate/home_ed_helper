@@ -13,7 +13,7 @@ export default function WeekSelector() {
           <option key={i} value={i}>
             {week[0]}
             {" - "}
-            {week[1]}
+            {week[6]}
           </option>
         ))}
       </select>

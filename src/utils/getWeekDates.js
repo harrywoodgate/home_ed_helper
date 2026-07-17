@@ -29,17 +29,21 @@ function getWeekDates(year) {
     ) {
       break;
     }
-    date.setDate(date.getDate() + 6);
-    let sunday = new Date(date);
-    let [sunYear, sunMonth, sunDay] = [
-      sunday.getFullYear(),
-      sunday.getMonth() + 1,
-      sunday.getDate(),
-    ];
-    sunDay < 10 ? (sunDay = String(sunDay).padStart(2, "0")) : sunDay;
-    sunMonth < 10 ? (sunMonth = String(sunMonth).padStart(2, "0")) : sunMonth;
-    const formattedSunday = `${sunDay}/${sunMonth}/${sunYear}`;
-    weeks.push([formattedMonday, formattedSunday]);
+    let week = [formattedMonday]
+    for (let i = 1; i <= 6; i++) {
+      date.setDate(date.getDate() + 1);
+      const weekDay = new Date(date);
+      let [year, month, day] = [
+        weekDay.getFullYear(),
+        weekDay.getMonth() + 1,
+        weekDay.getDate(),
+      ];
+      day < 10 ? (day = String(day).padStart(2, "0")) : day;
+      month < 10 ? (month = String(month).padStart(2, "0")) : month;
+      const formattedWeekday = `${day}/${month}/${year}`;
+      week.push(formattedWeekday)
+    }
+    weeks.push(week)
     date.setDate(date.getDate() + 1);
   }
 
