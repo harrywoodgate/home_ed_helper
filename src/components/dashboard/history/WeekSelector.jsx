@@ -1,13 +1,16 @@
 import { getWeekDates } from "../../../utils/getWeekDates";
+import { useOutletContext } from "react-router";
 
 export default function WeekSelector() {
   const weeks = getWeekDates(2026);
+  const {setWeek} = useOutletContext();
 
   return (
     <div className="relative">
       <select
         id="week_dates"
         className="bg-background text-xs sm:text-sm appearance-none pl-1 pr-3"
+        onChange={(e) => setWeek(weeks[e.target.value])}
       >
         {weeks.map((week, i) => (
           <option key={i} value={i}>

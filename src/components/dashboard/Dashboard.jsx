@@ -14,7 +14,7 @@ export default function Dashboard() {
   const [selected, setSelected] = useState("Generator");
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
   const [showMobileNav, setShowMobileNav] = useState(false);
-  const { history, loading, deleteHistory, addHistory } = useManageHistory();
+  const { history, loading, deleteHistory, addHistory, setWeek } = useManageHistory();
   const { images, selectImages, deleteImage, resetImages, dropImages } =
     useManageImages();
 
@@ -59,6 +59,7 @@ export default function Dashboard() {
           date,
           setDate,
           setSelected,
+          setWeek
         }}
       />
       <LogoutPopUp active={showLogoutPopup} setActive={setShowLogoutPopup} />

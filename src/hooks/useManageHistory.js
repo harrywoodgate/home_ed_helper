@@ -10,10 +10,13 @@ export function useManageHistory() {
   const [loading, setLoading] = useState(true);
   const [week, setWeek] = useState(getWeekDates(2026)[0]);
 
-  const weekFilter = week.map((date) => `file_name.like.%${date}%`).join(",");
-
   useEffect(() => {
     const fetchHistory = async () => {
+      setHistory([]);
+      setLoading(true);
+      const weekFilter = week
+        .map((date) => `file_name.like.%${date}%`)
+        .join(",");
       const { data, error } = await supabase
         .from("report_uploads")
         .select("id, file_path, file_name")
@@ -26,7 +29,7 @@ export function useManageHistory() {
       setLoading(false);
     };
     fetchHistory();
-  }, [week, weekFilter]);
+  }, [week]);
 
   const deleteHistory = (filePath) => {
     deletePdf(filePath);
