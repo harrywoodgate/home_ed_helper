@@ -8,8 +8,8 @@ export default function HistoryReport({ report, setDeleteFile }) {
       className="flex flex-wrap px-6 py-4 sm:py-0 min-h-[106px] gap-x-2 items-center justify-between mt-1 bg-white rounded-2xl border shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)] gap-y-6"
       key={report.id}
     >
-      <div className="flex items-center sm:gap-x-6 w-full sm:w-auto">
-        <h3 className="font-semibold w-[50%] sm:w-[130px] text-center">
+      <div className="flex items-center justify-center sm:gap-x-6 w-full sm:w-auto">
+        <h3 className="font-semibold w-[50%] sm:w-[80px] md:w-[130px] text-center">
           {report.file_name.split("-")[0]}
         </h3>
         <div className="h-[50px] w-[2px] bg-border"></div>
