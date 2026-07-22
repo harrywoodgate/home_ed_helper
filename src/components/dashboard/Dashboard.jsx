@@ -1,5 +1,5 @@
 import { Outlet } from "react-router";
-import Nav from "./Nav";
+import Nav from "./nav/Nav.jsx";
 import Header from "./Header";
 import { useManageHistory } from "../../hooks/useManageHistory";
 import { useManageImages } from "../../hooks/useManageImages";

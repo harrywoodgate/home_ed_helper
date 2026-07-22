@@ -14,7 +14,7 @@ export default function Generator() {
               viewBox="0 0 24 24"
               className="w-5 h-5 sm:w-8 sm:h-8 fill-secondary"
             >
-              <title>file-document-outline</title>
+              <title>document</title>
               <path d="M6,2A2,2 0 0,0 4,4V20A2,2 0 0,0 6,22H18A2,2 0 0,0 20,20V8L14,2H6M6,4H13V9H18V20H6V4M8,12V14H16V12H8M8,16V18H13V16H8Z" />
             </svg>
           </div>

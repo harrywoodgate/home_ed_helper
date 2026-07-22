@@ -44,7 +44,7 @@ export default function LoginCard() {
             viewBox="0 0 24 24"
             className="w-3 lg:w-5 absolute top-2 lg:top-3 left-3 lg:left-4 pt-[3px]"
           >
-            <title>email-outline</title>
+            <title>email</title>
             <path d="M22 6C22 4.9 21.1 4 20 4H4C2.9 4 2 4.9 2 6V18C2 19.1 2.9 20 4 20H20C21.1 20 22 19.1 22 18V6M20 6L12 11L4 6H20M20 18H4V8L12 13L20 8V18Z" />
           </svg>
           <input
@@ -63,7 +63,7 @@ export default function LoginCard() {
             viewBox="0 0 24 24"
             className="w-3 lg:w-5 absolute top-2 lg:top-3 left-3 lg:left-4 pt-[3px]"
           >
-            <title>lock-outline</title>
+            <title>password</title>
             <path d="M12,17C10.89,17 10,16.1 10,15C10,13.89 10.89,13 12,13A2,2 0 0,1 14,15A2,2 0 0,1 12,17M18,20V10H6V20H18M18,8A2,2 0 0,1 20,10V20A2,2 0 0,1 18,22H6C4.89,22 4,21.1 4,20V10C4,8.89 4.89,8 6,8H7V6A5,5 0 0,1 12,1A5,5 0 0,1 17,6V8H18M12,3A3,3 0 0,0 9,6V8H15V6A3,3 0 0,0 12,3Z" />
           </svg>
           <input
@@ -76,7 +76,7 @@ export default function LoginCard() {
         <button className="bg-secondary w-full rounded-lg py-2 lg:py-3 text-sm lg:text-base text-white mb-2 lg:mb-4 relative">
           <span>Sign In</span>
           <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 lg:w-5 fill-white absolute right-3 bottom-2 lg:right-3 lg:bottom-3 pb-[2px]">
-            <title>arrow-right</title>
+            <title>login</title>
             <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" />
           </svg>
         </button>
