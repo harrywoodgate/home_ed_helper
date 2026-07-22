@@ -21,7 +21,7 @@ export default function History() {
       <div className="w-full lg:w-[1000px] flex flex-col gap-y-2">
         <div className="w-full flex items-center justify-between mb-4">
           <h1 className="text-xl sm:text-2xl font-semibold">History</h1>
-          <WeekSelector />
+          <WeekSelector setPageNumber={setPageNumber} />
         </div>
         {loading ? <div>Loading...</div> : ""}
         {history.length === 0 && !loading ? (
@@ -31,11 +31,20 @@ export default function History() {
             {currentPage.map((report) => (
               <HistoryReport report={report} setDeleteFile={setDeleteFile} />
             ))}
-            <PageSelector
-              pageNumber={pageNumber}
-              setPageNumber={setPageNumber}
-              numberOfPages={numberOfPages}
-            />
+            <div className="flex justify-between items-center mt-2">
+              <p className="text-xs text-secondary_text">
+                Showing {startNumber + 1} to{" "}
+                {currentPage.length < 5
+                  ? history.indexOf(currentPage.at(-1)) + 1
+                  : endNumber}{" "}
+                of {history.length} reports
+              </p>
+              <PageSelector
+                pageNumber={pageNumber}
+                setPageNumber={setPageNumber}
+                numberOfPages={numberOfPages}
+              />
+            </div>
           </>
         )}
       </div>
