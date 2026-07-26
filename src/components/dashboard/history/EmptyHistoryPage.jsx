@@ -1,16 +1,17 @@
 import { useNavigate } from "react-router";
 import { useOutletContext } from "react-router";
+import emptyHistoryGraphic from '../../../img/empty_history_graphic3.png'
 
 export default function EmptyHistoryPage() {
   const navigate = useNavigate();
   const { setSelected } = useOutletContext();
 
   return (
-    <div className="h-full flex items-center justify-center flex-col">
+    <div className="h-full flex items-center justify-center flex-col mb-8">
       <img
-        src="../../../src/img/empty_history_graphic.png"
+        src={emptyHistoryGraphic}
         alt="graphic"
-        className="w-[300px] mr-[15px]"
+        className="w-[300px]"
       />
       <h2 className="text-3xl font-semibold mb-2">No reports yet</h2>
       <p className="text-secondary_text text-sm">
