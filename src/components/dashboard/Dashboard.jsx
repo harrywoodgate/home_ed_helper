@@ -1,4 +1,4 @@
-import { Outlet } from "react-router";
+import { Outlet, useLocation } from "react-router";
 import Nav from "./nav/Nav.jsx";
 import Header from "./Header";
 import { useManageHistory } from "../../hooks/useManageHistory";
@@ -11,10 +11,13 @@ export default function Dashboard() {
   const [subject, setSubject] = useState("");
   const [summary, setSummary] = useState("");
   const [date, setDate] = useState(new Date().toISOString().split("T")[0]);
-  const [selected, setSelected] = useState("Generator");
+  const { pathname } = useLocation();
+  const currentPage = pathname.split("/").pop();
+  const [selected, setSelected] = useState(currentPage);
   const [showLogoutPopup, setShowLogoutPopup] = useState(false);
   const [showMobileNav, setShowMobileNav] = useState(false);
-  const { history, loading, deleteHistory, addHistory, setWeek } = useManageHistory();
+  const { history, loading, deleteHistory, addHistory, setWeek } =
+    useManageHistory();
   const { images, selectImages, deleteImage, resetImages, dropImages } =
     useManageImages();
 
@@ -30,10 +33,12 @@ export default function Dashboard() {
     };
   }, []);
 
-
   return (
     <div className="flex flex-col lg:grid grid-cols-[240px_1fr] min-h-screen grid-rows-[auto_1fr]">
-      <Header setShowLogoutPopup={setShowLogoutPopup} setShowMobileNav={setShowMobileNav} />
+      <Header
+        setShowLogoutPopup={setShowLogoutPopup}
+        setShowMobileNav={setShowMobileNav}
+      />
       <Nav
         selected={selected}
         setSelected={setSelected}
@@ -59,7 +64,7 @@ export default function Dashboard() {
           date,
           setDate,
           setSelected,
-          setWeek
+          setWeek,
         }}
       />
       <LogoutPopUp active={showLogoutPopup} setActive={setShowLogoutPopup} />
