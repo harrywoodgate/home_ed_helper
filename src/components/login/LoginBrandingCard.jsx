@@ -11,10 +11,10 @@ export default function LoginBrandingCard() {
         />
         <h1 className="text-md lg:text-xl font-bold">Home Ed Helper</h1>
       </div>
-      <p className="text-xl lg:text-3xl font-bold flex flex-col gap-y-1 mb-4">
-        Create professional
+      <div className="text-xl lg:text-3xl font-bold flex flex-col gap-y-1 mb-4">
+        <p>Create professional</p>
         <p className="text-secondary">home education reports</p> in seconds.
-      </p>
+      </div>
       <p className="text-secondary_text text-xs lg:text-base">
         Save time, stay organised, and focus on what matters most - your childs
         learning
