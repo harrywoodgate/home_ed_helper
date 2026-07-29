@@ -1,13 +1,13 @@
-import logoTwo from '../../img/logo_two.png'
+import logo from '../../img/logo_violet.png'
 
 export default function SingupBrandingCard() {
   return (
     <div className="flex flex-col justify-center h-screen lg:w-[338px]">
-      <div className="flex items-center gap-x-3 mb-4 lg:mb-8">
+      <div className="flex items-center -ml-3 lg:-ml-4 mb-4 lg:mb-8">
         <img
-          src={logoTwo}
+          src={logo}
           alt="logo"
-          className="w-5 h-6 lg:w-7 lg:h-8 pb-[3px]"
+          className="w-12 pt-[2px] lg:w-16"
         />
         <h1 className="text-md lg:text-xl font-bold">Home Ed Helper</h1>
       </div>

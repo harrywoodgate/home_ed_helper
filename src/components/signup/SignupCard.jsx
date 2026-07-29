@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate, Link } from "react-router";
 import { supabase } from "../../supabaseClient";
-import logoTwo from '../../img/logo_two.png'
+import logo from '../../img/logo_indigo.png'
 
 export default function SignUpCard() {
   const [email, setEmail] = useState("");
@@ -28,9 +28,9 @@ export default function SignUpCard() {
     <div className="bg-white p-8 lg:p-12 flex flex-col items-center justify-center rounded-xl gap-y-2 lg:gap-y-4 w-full lg:w-[500px] border shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)]">
       <div className="bg-indigo-50 w-[50px] h-[50px] lg:w-[70px] lg:h-[70px] flex items-center justify-center rounded-full">
         <img
-          src={logoTwo}
+          src={logo}
           alt="logo"
-          className="w-[15px] w-[25px] h-[25px] lg:w-[30px] lg:h-[30px]"
+          className="w-12 rounded-3xl lg:w-16"
         />
       </div>
       <div className="flex flex-col items-center mb-6">

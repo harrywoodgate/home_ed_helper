@@ -1,6 +1,6 @@
 import { useNavigate } from "react-router";
 import { useOutletContext } from "react-router";
-import emptyHistoryGraphic from '../../../img/empty_history_graphic3.png'
+import emptyHistoryGraphic from '../../../img/empty_history_graphic.png'
 
 export default function EmptyHistoryPage() {
   const navigate = useNavigate();

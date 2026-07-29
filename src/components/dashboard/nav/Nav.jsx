@@ -1,4 +1,4 @@
-import logo from "../../../img/logo.png";
+import logo from "../../../img/logo_white.png";
 import { useEffect } from "react";
 import NavLink from "./NavLink";
 
@@ -32,7 +32,7 @@ export default function Nav({
             <img
               src={logo}
               alt="logo"
-              className="w-[35px] mr-1 sm:mr-0 sm:w-[45px]"
+              className="w-10 pt-[2px] -ml-1 md:-ml-2 sm:w-14"
             />
             <h2 className="sm:text-lg font-semibold">Home Ed Helper</h2>
           </div>

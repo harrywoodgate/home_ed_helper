@@ -1,13 +1,13 @@
 import { Link } from "react-router";
-import logo from './img/logo.png' 
+import logo from './img/logo_grey.png' 
 
 function App() {
 
   return (
     <div className="flex flex-col gap-y-2 sm:gap-y-3 justify-center items-center h-[100svh]">
       <div className="overflow-hidden">
-        <div className="flex items-center sm:gap-x-2 animate-app_slide_in">
-          <img src={logo} alt="" className="w-[45px] sm:w-[72px] sm:h-[72px]"/>
+        <div className="flex items-center animate-app_slide_in pr-4 sm:pr-6">
+          <img src={logo} alt="" className="w-[55px] pb-[1px] sm:w-[100px] sm:h-[100px] sm:pt-[5px] pr-1"/>
           <h1 className="text-2xl sm:text-5xl font-bold">Home Ed Helper</h1>
         </div>
       </div>
