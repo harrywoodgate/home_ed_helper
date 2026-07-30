@@ -21,7 +21,7 @@ export default function SignUpCard() {
       password,
     });
     if (error) return setError(error.message);
-    navigate("/login");
+    navigate("/dashboard/generator");
   }
 
   return (
