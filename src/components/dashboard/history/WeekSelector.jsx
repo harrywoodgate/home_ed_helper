@@ -9,7 +9,7 @@ export default function WeekSelector({setPageNumber}) {
     <div className="relative">
       <select
         id="week_dates"
-        className="bg-background text-xs sm:text-sm appearance-none pl-1 pr-3"
+        className="bg-background text-xs sm:text-sm appearance-none pl-1 pr-5"
         onChange={(e) => {setWeek(weeks[e.target.value]); setPageNumber(1)}}
       >
         {weeks.map((week, i) => (
@@ -21,7 +21,7 @@ export default function WeekSelector({setPageNumber}) {
         ))}
       </select>
       <svg
-        className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 pt-[1px]"
+        className="pointer-events-none absolute right-0 top-1/2 -translate-y-1/2 pt-[3px] sm:pt-[1px]"
         width="20"
         height="20"
         fill="#0F172A"
