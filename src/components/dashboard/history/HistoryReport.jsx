@@ -30,7 +30,6 @@ export default function HistoryReport({ report, setDeleteFile }) {
             viewBox="0 0 24 24"
             className="w-4 h-4 sm:w-5 sm:h-5"
           >
-            <title>preview</title>
             <path d="M12,9A3,3 0 0,1 15,12A3,3 0 0,1 12,15A3,3 0 0,1 9,12A3,3 0 0,1 12,9M12,4.5C17,4.5 21.27,7.61 23,12C21.27,16.39 17,19.5 12,19.5C7,19.5 2.73,16.39 1,12C2.73,7.61 7,4.5 12,4.5M3.18,12C4.83,15.36 8.24,17.5 12,17.5C15.76,17.5 19.17,15.36 20.82,12C19.17,8.64 15.76,6.5 12,6.5C8.24,6.5 4.83,8.64 3.18,12Z" />
           </svg>
           <span>Preview</span>
@@ -44,10 +43,9 @@ export default function HistoryReport({ report, setDeleteFile }) {
             viewBox="0 0 24 24"
             className="w-4 h-4 sm:w-5 sm:h-5"
           >
-            <title>download</title>
             <path d="M2 12H4V17H20V12H22V17C22 18.11 21.11 19 20 19H4C2.9 19 2 18.11 2 17V12M12 15L17.55 9.54L16.13 8.13L13 11.25V2H11V11.25L7.88 8.13L6.46 9.55L12 15Z" />
           </svg>
-          <span>Download</span>
+          Download
         </button>
         <button
           className="flex items-center gap-x-2 sm:gap-x-3 text-xs sm:text-sm text-red-500"
@@ -63,7 +61,6 @@ export default function HistoryReport({ report, setDeleteFile }) {
             viewBox="0 0 24 24"
             className="w-4 h-4 sm:w-5 sm:h-5 fill-red-500"
           >
-            <title>delete</title>
             <path d="M9,3V4H4V6H5V19A2,2 0 0,0 7,21H17A2,2 0 0,0 19,19V6H20V4H15V3H9M7,6H17V19H7V6M9,8V17H11V8H9M13,8V17H15V8H13Z" />
           </svg>
           Delete
