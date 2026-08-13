@@ -1,9 +1,8 @@
-import { describe, it, expect } from "vitest";
+import { describe, it, expect, vi } from "vitest";
 import { render, screen, waitFor } from "@testing-library/react";
 import { createMemoryRouter, RouterProvider } from "react-router";
 import userEvent from "@testing-library/user-event";
 import routes from "../src/routes";
-import { vi } from "vitest";
 import { supabase } from "../src/supabaseClient";
 import { useManageHistory } from "../src/hooks/useManageHistory";
 import { downloadPdf } from "../src/utils/downloadPdf";
@@ -38,7 +37,7 @@ vi.mock("../src/supabaseClient", () => ({
 const todaysDate = new Date().toISOString().split("T")[0];
 const [year, month, day] = todaysDate.split("-");
 const formattedDate = `${day}/${month}/${year}`;
-let mockDeleteHistory;
+const mockDeleteHistory = vi.fn();
 
 function setUp() {
   supabase.auth.getSession.mockResolvedValue({ data: { session: {} } });
@@ -49,7 +48,6 @@ function setUp() {
 
     return { data: { subscription: { unsubscribe: vi.fn() } } };
   });
-  mockDeleteHistory = vi.fn();
   useManageHistory.mockReturnValue({
     history: [
       {
@@ -100,12 +98,13 @@ describe("history page", () => {
   it("deletes report", async () => {
     const { user } = setUp();
 
-    // for some reason this only works with getAllByRole, getByRole still returns both buttons
+    // for some reason the delete pop up already shows on render and I dont know why
     await waitFor(() => {
       // user.click(screen.getByRole("button", { name: "Delete" }));
       user.click(screen.getAllByRole("button", { name: "Delete" })[0]);
       user.click(screen.getAllByRole("button", { name: "Delete" })[1]);
       expect(mockDeleteHistory).toHaveBeenCalled();
+      expect(screen.getByText("Are you sure?")).toBeInTheDocument();
     });
   });
 });
