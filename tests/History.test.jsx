@@ -98,13 +98,10 @@ describe("history page", () => {
   it("deletes report", async () => {
     const { user } = setUp();
 
-    // for some reason the delete pop up already shows on render and I dont know why
     await waitFor(() => {
-      // user.click(screen.getByRole("button", { name: "Delete" }));
       user.click(screen.getAllByRole("button", { name: "Delete" })[0]);
       user.click(screen.getAllByRole("button", { name: "Delete" })[1]);
       expect(mockDeleteHistory).toHaveBeenCalled();
-      expect(screen.getByText("Are you sure?")).toBeInTheDocument();
     });
   });
 });

@@ -1,7 +1,9 @@
 import { useOutletContext } from "react-router";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 
 export default function GenForm() {
+  const [showOtherInput, setShowOtherInput] = useState(false);
+
   const {
     images,
     selectImages,
@@ -28,13 +30,22 @@ export default function GenForm() {
             <select
               id="subject"
               className="h-[30px] sm:h-auto px-2 py-1 sm:px-3 sm:py-2 bg-white border-border border-2 rounded-md text-xs sm:text-sm appearance-none w-full"
-              onChange={(e) => setSubject(e.target.value)}
+              onChange={(e) => {
+                if (e.target.value === "Other") {
+                  setShowOtherInput(true);
+                  setSubject("");
+                } else {
+                  setShowOtherInput(false);
+                  setSubject(e.target.value);
+                }
+              }}
               value={subject}
             >
               <option value="">Select an option</option>
               <option value="Maths">Maths</option>
               <option value="English">English</option>
               <option value="Science">Science</option>
+              <option value="Other">Other...</option>
             </select>
             <svg
               className="pointer-events-none absolute right-1 sm:right-3 top-1/2 -translate-y-1/2"
@@ -45,6 +56,17 @@ export default function GenForm() {
             >
               <path d="M5 7l5 5 5-5H5z" />
             </svg>
+            <input
+              type="text"
+              placeholder="Type subject here"
+              className={
+                showOtherInput
+                  ? "absolute left-[10px] sm:left-[14px] top-[6px] sm:top-[10px] w-[80%] h-[18px] sm:h-[20px] text-xs sm:text-sm appearance-none focus:outline-none z-10"
+                  : "hidden"
+              }
+              onChange={(e) => setSubject(e.target.value)}
+              value={subject}
+            />
           </div>
         </div>
         <div className="flex flex-col gap-y-3 w-full">
@@ -99,7 +121,9 @@ export default function GenForm() {
           <path d="M13 19C13 19.7 13.13 20.37 13.35 21H5C3.9 21 3 20.11 3 19V5C3 3.9 3.9 3 5 3H19C20.11 3 21 3.9 21 5V13.35C20.37 13.13 19.7 13 19 13V5H5V19H13M13.96 12.29L11.21 15.83L9.25 13.47L6.5 17H13.35C13.75 15.88 14.47 14.91 15.4 14.21L13.96 12.29M20 18V15H18V18H15V20H18V23H20V20H23V18H20Z" />
         </svg>
         <p className="text-xs sm:text-base">Drag and drop your images here</p>
-        <p className="text-secondary_text text-xs sm:text-base">or click to upload</p>
+        <p className="text-secondary_text text-xs sm:text-base">
+          or click to upload
+        </p>
       </div>
       <div className="flex gap-x-4">
         {images.length > 0 &&
