@@ -1,7 +1,7 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { supabase } from "../../supabaseClient";
 import { useNavigate, Link } from "react-router";
-import logo from '../../img/logo_indigo.png'
+import logo from "../../img/logo_indigo.png";
 
 export default function LoginCard() {
   const [email, setEmail] = useState("");
@@ -19,14 +19,37 @@ export default function LoginCard() {
     navigate("/dashboard/generator");
   }
 
+  async function handleLoginWithGoogle() {
+    await supabase.auth.signInWithOAuth({
+      provider: "google",
+      options: {
+        redirectTo: "https://homeedhelper.netlify.app/dashboard/generator",
+      },
+    });
+  }
+
+    useEffect(() => {
+    /* global google */
+    google.accounts.id.initialize({
+      client_id: "590241943378-mb6uuojc0qtcqp8vk5bmas78jdr2qhs8.apps.googleusercontent.com",
+      callback: handleLoginWithGoogle,
+    });
+
+    google.accounts.id.renderButton(
+      document.getElementById("googleSignInButton"),
+      {
+        theme: "outline",
+        size: "large",
+        shape: "rectangular",
+      },
+    );
+  }, []);
+
+  
   return (
     <div className="bg-white p-8 lg:p-12 flex flex-col items-center justify-center rounded-xl gap-y-2 lg:gap-y-4 w-full lg:w-[500px] border shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)]">
       <div className="bg-indigo-50 w-[50px] h-[50px] lg:w-[70px] lg:h-[70px] flex items-center justify-center rounded-full">
-        <img
-          src={logo}
-          alt="logo"
-          className="w-12 rounded-3xl lg:w-16"
-        />
+        <img src={logo} alt="logo" className="w-12 rounded-3xl lg:w-16" />
       </div>
       <div className="flex flex-col items-center mb-6">
         <h2 className="text-xl lg:text-2xl font-bold">Welcome Back</h2>
@@ -75,14 +98,21 @@ export default function LoginCard() {
         </div>
         <button className="bg-secondary w-full rounded-lg py-2 lg:py-3 text-sm lg:text-base text-white mb-2 lg:mb-4 relative">
           <span>Sign In</span>
-          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" className="w-4 lg:w-5 fill-white absolute right-3 bottom-2 lg:right-3 lg:bottom-3 pb-[2px]">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            className="w-4 lg:w-5 fill-white absolute right-3 bottom-2 lg:right-3 lg:bottom-3 pb-[2px]"
+          >
             <title>login</title>
             <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" />
           </svg>
         </button>
+        <div id="googleSignInButton"></div>
       </form>
       {error && <p className="text-xs lg:text-sm">{error}</p>}
-      <div className="w-full h-0.5 bg-gray-200 mt-2 mb-4 flex justify-center items-center"><span className="bg-white px-3 text-sm text-secondary_text">or</span></div>
+      <div className="w-full h-0.5 bg-gray-200 mt-2 mb-4 flex justify-center items-center">
+        <span className="bg-white px-3 text-sm text-secondary_text">or</span>
+      </div>
       <p className="text-xs lg:text-sm">
         Don't have an account?{" "}
         <Link to="/signup" className="text-secondary underline">
