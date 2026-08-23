@@ -28,22 +28,29 @@ export default function LoginCard() {
     });
   }
 
-    useEffect(() => {
-    /* global google */
-    google.accounts.id.initialize({
+useEffect(() => {
+  const checkGoogle = setInterval(() => {
+    if (window.google && window.google.accounts && window.google.accounts.id) {
+      window.google.accounts.id.initialize({
       client_id: "590241943378-mb6uuojc0qtcqp8vk5bmas78jdr2qhs8.apps.googleusercontent.com",
       callback: handleLoginWithGoogle,
-    });
+      });
 
-    google.accounts.id.renderButton(
-      document.getElementById("googleSignInButton"),
-      {
-        theme: "outline",
+      window.google.accounts.id.renderButton(
+        document.getElementById("googleSignInButton"),
+        {
+          theme: "outline",
         size: "large",
         shape: "rectangular",
-      },
-    );
-  }, []);
+        }
+      );
+
+      clearInterval(checkGoogle);
+    }
+  }, 100);
+
+  return () => clearInterval(checkGoogle);
+}, []);
 
   
   return (
