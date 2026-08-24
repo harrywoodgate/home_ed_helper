@@ -28,31 +28,35 @@ export default function LoginCard() {
     });
   }
 
-useEffect(() => {
-  const checkGoogle = setInterval(() => {
-    if (window.google && window.google.accounts && window.google.accounts.id) {
-      window.google.accounts.id.initialize({
-      client_id: "590241943378-mb6uuojc0qtcqp8vk5bmas78jdr2qhs8.apps.googleusercontent.com",
-      callback: handleLoginWithGoogle,
-      });
+  useEffect(() => {
+    const checkGoogle = setInterval(() => {
+      if (
+        window.google &&
+        window.google.accounts &&
+        window.google.accounts.id
+      ) {
+        window.google.accounts.id.initialize({
+          client_id:
+            "590241943378-mb6uuojc0qtcqp8vk5bmas78jdr2qhs8.apps.googleusercontent.com",
+          callback: handleLoginWithGoogle,
+        });
 
-      window.google.accounts.id.renderButton(
-        document.getElementById("googleSignInButton"),
-        {
-          theme: "outline",
-        size: "large",
-        shape: "rectangular",
-        }
-      );
+        window.google.accounts.id.renderButton(
+          document.getElementById("googleSignInButton"),
+          {
+            theme: "outline",
+            size: "large",
+            shape: "rectangular",
+          },
+        );
 
-      clearInterval(checkGoogle);
-    }
-  }, 100);
+        clearInterval(checkGoogle);
+      }
+    }, 100);
 
-  return () => clearInterval(checkGoogle);
-}, []);
+    return () => clearInterval(checkGoogle);
+  }, []);
 
-  
   return (
     <div className="bg-white p-8 lg:p-12 flex flex-col items-center justify-center rounded-xl gap-y-2 lg:gap-y-4 w-full lg:w-[500px] border shadow-[0_1px_3px_rgba(15,23,42,0.05),_0_8px_24px_rgba(15,23,42,0.04)]">
       <div className="bg-indigo-50 w-[50px] h-[50px] lg:w-[70px] lg:h-[70px] flex items-center justify-center rounded-full">
@@ -114,7 +118,7 @@ useEffect(() => {
             <path d="M4,11V13H16L10.5,18.5L11.92,19.92L19.84,12L11.92,4.08L10.5,5.5L16,11H4Z" />
           </svg>
         </button>
-        <div id="googleSignInButton"></div>
+        <div id="googleSignInButton" className="w-full"></div>
       </form>
       {error && <p className="text-xs lg:text-sm">{error}</p>}
       <div className="w-full h-0.5 bg-gray-200 mt-2 mb-4 flex justify-center items-center">
