@@ -65,7 +65,7 @@ pnpm dev
 
 ## Environment Variables
 
-Create a `.env` file in the project root and add:
+Create a `.env.local` file in the project root and add:
 
 VITE_SUPABASE_URL=your_supabase_url  
 VITE_SUPABASE_ANON_KEY=your_supabase_anon_key
